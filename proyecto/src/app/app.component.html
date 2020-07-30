@@ -1,5 +1,4 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -9,13 +8,23 @@
 
 
       <li class="nav-item">
-        <a class="nav-link" href="#" routerLink="/">hommme <span class="sr-only" ></span></a>
+        <a  class="nav-link"  href="#" routerLink="/" >inicio<span class="sr-only" ></span>
+            <img src="assets/images/icon.png " height="50" width="50 " >   
+       </a>
       </li>
 
 
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/grafo"> Mapa
+          <img src="assets/images/grafo.png " height="50" width="50">
+        </a>
+      </li>
+sds
 
       <li class="nav-item">
-        <a class="nav-link" href="#" routerLink="/grafo">grafo</a>
+        <a class="nav-link" href="#" routerLink="/grafo"> Cuenta
+          <img src="assets/images/person.png " height="50" width="50">
+        </a>
       </li>
 
 
@@ -24,6 +33,11 @@
 
   </div>
 </nav>
+
+
+
+<router-outlet></router-outlet>
+
 
 
 
