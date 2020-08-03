@@ -1,5 +1,4 @@
 import { stringify } from "querystring";
-
 class Nodo<T> {
 
   data: T;
@@ -10,18 +9,16 @@ class Nodo<T> {
   }
 
 }
-
-class Lista<T> {
+ export class Lista<T> {
 
   head: Nodo<T>;
   size: number;
 
-  constructor() {
+  public Lista(){
     this.size = 0;
   }
 
-  add(data: T): void {
-
+  public add(data: T): void {
     if(!this.head) {
       this.head = new Nodo<T>(data);
       this.size++;
@@ -57,4 +54,22 @@ class Lista<T> {
       current = current.next;
     }
   }
+
+ 
+  public returnAll() 
+    { 
+      var resultado:string="";
+      let actual = this.head;
+      while(actual!=null)
+        {
+          resultado=resultado.concat((<string><unknown>actual.data).toString()); 
+
+            actual=actual.next;
+        }
+
+      return resultado;
+
+    }
+
+
 }
