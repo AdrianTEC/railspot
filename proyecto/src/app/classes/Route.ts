@@ -18,5 +18,9 @@ export class Route
             {
                 this.cost= value;
             }
+        public compareTo(value:any)
+            {
+                return this.target.getDato().getName()== value;
+            }
 
     }

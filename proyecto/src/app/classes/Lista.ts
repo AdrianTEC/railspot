@@ -1,26 +1,30 @@
-import { stringify } from "querystring";
 
  export class Lista<T> 
   {
 
-    head: Nodo<T>;
+    head: Nodo;
     size: number;
+    ///////////////////////////////////////////////////////////////////
 
     public Lista()
       {
         this.size = 0;
       }
-
-    ///////////////////////////////////////////////////////////////////
+    /**Agrega un nodo a la lista
+     * @param data
+     * @author Gabriel Vargas
+     * @throws nothing
+     * @version 02/08/20
+     * */  
     public add(data: T): void 
       {
         if(!this.head) {
-          this.head = new Nodo<T>(data);
+          this.head = new Nodo(data);
           this.size++;
           return;
         }
 
-        let current: Nodo<T> = this.head;
+        let current: Nodo = this.head;
         while(current.next) {
           current = current.next;
         }
@@ -28,28 +32,53 @@ import { stringify } from "querystring";
         current.next = new Nodo(data);
         this.size++;
       }
-    ///////////////////////////////////////////////////////////////////
 
-    delete(cb: (data: T) => boolean): void 
+
+    /**Busca un valor de la lista por su nombre y si lo encuentra lo retorna
+     * @param nombre
+     * @author Adrian Gonzalez
+     * @throws nothing
+     * @returns NODO DE LA LISTA, puede contener un NODOGRAFO o UNA RUTA
+     * @version 04/08/20
+     * */ 
+    public  lookFor(nombre:string):Nodo
       {
-
-        if(!this.head) return;
-
-        if(cb(this.head.data)) {
-          this.head = this.head.next;
-          this.size--;
-          return;
-        }
-
-        let current: Nodo<T> = this.head;
-        while(current.next) {
-          if(cb(current.next.data)) {
-            current.next = current.next.next;
-            this.size--
-            return;
+        let current: Nodo= this.head;
+        while(current!=null)
+          {
+            if(current.data.compare(nombre))
+            {
+              return current;
+            }
+              current= current.next;
           }
-          current = current.next;
-        }
+
+          return null;
+      }
+
+
+    /**Borra un Nodo de la lista, por medio de un string para identificarlo
+     * @param value
+     * @author Gabriel Vargas
+     * @throws nothing
+     * @version 02/08/20
+     * */  
+    
+    delete(value:string): void 
+      {
+        let current: Nodo= this.head;
+        while(current.next!=null) 
+          {
+            //encontré al bicho
+            if(current.next.data.compare(value))
+              {
+                current.next = current.next.next;
+                this.size--;
+                return;
+              }
+
+            current = current.next;
+          }
       }
 
     ///////////////////////////////////////////////////////////////////
@@ -58,6 +87,7 @@ import { stringify } from "querystring";
       { 
         var resultado:string="";
         let actual = this.head;
+
         while(actual!=null)
           {
             resultado=resultado.concat((<string><unknown>actual.data).toString()); 
@@ -76,14 +106,20 @@ import { stringify } from "querystring";
     ///////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////
 
-class Nodo<T> 
+class Nodo
   {
 
-    data: T;
-    next: Nodo<T>;
+    data: any;
+    next: Nodo;
 
-    constructor(data?: T) {
+    constructor(data) {
       this.data = data;
     }
+    // ME LLEGA UN STRING
+    public compare(value:any)
+      {
+        this.data.compareTo(value);
+      }
+
 
   }
