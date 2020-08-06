@@ -77,5 +77,10 @@ class Grafo
 
             }
 
+        public getListaNodos()
+            {
+                return this.nodes;
+            }
+
 
     }

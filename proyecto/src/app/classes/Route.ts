@@ -6,6 +6,11 @@ export class Route
 
         private target:NodoGrafo;
         private cost:number;
+        constructor( objetivo, costo)
+            {
+                this.target=objetivo;
+                this.cost= costo;
+            }
     ///////////////////////////////////////////////////////////////////
         
         public setTarget(value:NodoGrafo)
