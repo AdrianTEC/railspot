@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { GrafoComponent } from './grafo/grafo.component';
 import { AgmCoreModule } from '@agm/core';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AgmCoreModule } from '@agm/core';
     AppRoutingModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAjoMJHc1j-7OOm2WtyHXLwe9p1EnnDLWo'
-    })
+    }),
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

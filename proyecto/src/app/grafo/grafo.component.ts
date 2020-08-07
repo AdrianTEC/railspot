@@ -1,22 +1,61 @@
 import { Component, OnInit } from '@angular/core';
+import { AgmMarker } from '@agm/core';
+
+
 @Component({
   selector: 'app-grafo',
   templateUrl: './grafo.component.html',
   styleUrls: ['./grafo.component.css']
 })
+
+
 export class GrafoComponent implements OnInit {
   
-  constructor() { }
+  lat1 = 9.859392;
+  lng1 = -83.910825;
 
-  ngOnInit():void {
 
-
+  ngOnInit():void 
+    {
+    }
+    
   
-  }
-  lat = 9.859392;
-  lng = -83.910825;
-  lat2 = 9.858831;
-  lng2 = -83.910629;
-  lat3 = 9.859648;
-  lng3 = -83.906114;
+
+  public do()
+    {
+        this.markers.push({
+          lat: 9.854387,
+          lng:-83.911511 ,
+          draggable: true
+        });
+
+    }
+    markers: marker[] = [
+      { 
+        lat: 9.854487,
+        lng: -83.910514,
+        label: 'Estación acuatica del lago',
+        draggable: true
+      },
+      { 
+        lat: 9.858962,
+        lng: -83.910431,
+        label: 'Estacion casa de Yordan',
+        draggable: false
+      },
+      { 
+        lat: 9.858162,
+        lng: -83.910231,
+        label: 'lugar ramdom',
+        draggable: false
+      }
+    ]
+}
+
+
+interface marker {
+	lat: number;
+	lng: number;
+	label?: string;
+	draggable: boolean;
 }

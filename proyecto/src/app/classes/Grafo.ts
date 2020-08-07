@@ -1,7 +1,6 @@
 
 import {Lista} from './Lista';
 import {NodoGrafo} from './NodoGrafo';
-
 import { Route } from './Route';
 class Grafo
     {
@@ -23,6 +22,9 @@ class Grafo
             {
                     //Agregado de la lista
                     this.nodes.add(new NodoGrafo(value));
+
+
+
                     //Agregado visual
             }
 

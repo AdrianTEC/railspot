@@ -1,7 +1,5 @@
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-// For MDB Angular Pro
-// For MDB Angular Free
 
 
 import {HomeComponent} from './home/home.component';
