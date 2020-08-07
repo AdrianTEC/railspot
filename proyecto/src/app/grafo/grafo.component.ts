@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AgmMarker } from '@agm/core';
 
 
 @Component({
