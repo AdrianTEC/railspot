@@ -25,7 +25,6 @@ export class GrafoComponent implements OnInit {
         this.markers.push({
           lat: 9.854387,
           lng:-83.911511 ,
-          draggable: true
         });
 
     }
@@ -34,19 +33,16 @@ export class GrafoComponent implements OnInit {
         lat: 9.854487,
         lng: -83.910514,
         label: 'Estación acuatica del lago',
-        draggable: true
       },
       { 
         lat: 9.858962,
         lng: -83.910431,
         label: 'Estacion casa de Yordan',
-        draggable: false
       },
       { 
         lat: 9.858162,
         lng: -83.910231,
-        label: 'lugar ramdom',
-        draggable: false
+        label: 'Estación del futuro',
       }
     ]
 }
@@ -56,5 +52,4 @@ interface marker {
 	lat: number;
 	lng: number;
 	label?: string;
-	draggable: boolean;
 }

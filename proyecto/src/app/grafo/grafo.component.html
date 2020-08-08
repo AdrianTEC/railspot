@@ -1,27 +1,121 @@
+<!--
+
+
+////////////////////////////////////_______MAPA_____________///////////////////////////////////////////////////////////////
+
+
+
+--> 
 <agm-map [latitude]= "lat1" [longitude]="lng1"  [zoom]=15>
 
-
-
-
-
   <agm-marker 
-  *ngFor="let m of markers; let i = index"
-  (markerClick)="clickedMarker(m.label, i)"
-  [latitude]="m.lat"
-  [longitude]="m.lng"
-  [label]="m.label"
-  [markerDraggable]="m.draggable"
-  >
-  
-<agm-info-window>
-  <strong>InfoWindow content</strong>
-</agm-info-window>
-
-</agm-marker>
-
-
-</agm-map> 
+          *ngFor="let m of markers;"
+                [latitude]="m.lat"
+                [longitude]="m.lng"
+                [label]="m.label"
+          ></agm-marker>
+  </agm-map> 
 
 
 
-<button type="button" (click)="do()" class="btn btn-primary" >Primary</button>
+<!--
+
+
+////////////////////////////////////________BUTON PRUEBA____________///////////////////////////////////////////////////////////////
+
+
+-->  
+
+<button 
+      type="button" 
+      (click)="do()" 
+      class="btn btn-primary" >
+      Primary
+</button>
+
+<!--
+
+
+////////////////////////////////////__________DROPBOX INICIO__________///////////////////////////////////////////////////////////////
+
+
+
+-->  
+
+<div class="d-flex flex-row">
+
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" 
+                type="button" id="2" 
+                data-toggle="dropdown"
+                aria-haspopup="true" 
+                aria-expanded="false">
+                  Parada inicial
+        </button>
+
+        <div class="dropdown-menu" 
+            aria-labelledby="2">
+              <button class="dropdown-item" type="button">Cartago</button>
+              <button class="dropdown-item" type="button">TEC</button>
+              <button class="dropdown-item" type="button">Taras</button>
+        </div>
+    </div>
+ <!--
+
+
+////////////////////////////////////_______SEGUNDO DROPBOX_____________///////////////////////////////////////////////////////////////
+
+
+
+-->  
+
+    <div class="dropdown">
+              <button 
+                    class="btn btn-secondary dropdown-toggle" 
+                    type="button" 
+                    id="1" 
+                    data-toggle="dropdown" 
+                    aria-haspopup="true" 
+                    aria-expanded="false">
+                    Destino
+              </button>
+
+              <div class="dropdown-menu" aria-labelledby="1">
+                    <button class="dropdown-item" type="button">Desampakistán</button>
+                    <button class="dropdown-item" type="button">Chepe</button>
+                    <button class="dropdown-item" type="button">San Pedro</button>
+              </div>
+    </div>
+<!--
+
+
+////////////////////////////////////________ENTRY PARA NUMEROS____________///////////////////////////////////////////////////////////////
+
+
+
+--> 
+
+    <div class="input-group mb-3" class="w-25 p-3">
+        <input 
+            type="text" 
+            class="form-control" 
+            placeholder="Cantidad de boletos" 
+            aria-label="Username" 
+            aria-describedby="basic-addon1">
+    </div>
+<!--
+
+
+////////////////////////////////////_________BOTON DE COMPRA___________///////////////////////////////////////////////////////////////
+
+
+
+--> 
+
+    <button onclick="foo()" 
+            type="button" 
+            class="btn btn-primary">
+            Comprobar precio
+    </button>
+
+</div>
