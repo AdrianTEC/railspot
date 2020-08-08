@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AgmDirectionModule} from "agm-direction"
 
 
 @Component({
@@ -13,10 +14,24 @@ export class GrafoComponent implements OnInit {
   lat1 = 9.859392;
   lng1 = -83.910825;
 
+  public dirs: Array<any> = [{
+    origin: { lat: 9.858962,
+      lng: -83.910431 },
+    destination: { lat: 9.858162,
+      lng: -83.910231 },
+    renderOptions: { polylineOptions: { strokeColor: '#f00' } },
+  }, {
+    origin: {lat: 9.858162,
+      lng: -83.910231},
+    destination: { lat: 9.854487,  lng: -83.910514 },
+    renderOptions: { polylineOptions: { strokeColor: '#0f0' } },
+  }];
 
-  ngOnInit():void 
-    {
-    }
+
+  ngOnInit() {
+   
+  }
+   
     
   
 
