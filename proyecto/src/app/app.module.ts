@@ -7,12 +7,14 @@ import { GrafoComponent } from './grafo/grafo.component';
 import { AgmCoreModule, GoogleMapsAPIWrapper} from '@agm/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AgmDirectionModule } from 'agm-direction';
-
+import { AdminComponent } from './admin/admin.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     GrafoComponent,
+    AdminComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -25,6 +27,7 @@ import { AgmDirectionModule } from 'agm-direction';
     
     
   ],
+
   providers: [GoogleMapsAPIWrapper],
   bootstrap: [AppComponent]
 })

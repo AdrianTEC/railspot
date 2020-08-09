@@ -5,9 +5,6 @@
 
   <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
       <ul class="navbar-nav mr-auto">
-          
-
-
           <li class="nav-item">
                 <a class="nav-link" href="#" routerLink="/grafo"> Mapa
                   <img src="assets/images/grafo.png " height="50" width="50">
@@ -21,10 +18,12 @@
 
   <div class="mx-auto order-0">
 
-        <a  class="nav-link"  href="#" routerLink="/home" >
+        <a  class="nav-link"   routerLink={{Directioner()}}>
             <img src="assets/images/icon.png " height="50" width="50 " >   
         </a>
   </div>
+  
+
   
   <div class="mx-auto order-0">
     <h4 style="color:white;"  >RailSpot</h4>
@@ -36,8 +35,8 @@
 
 
           <a class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink" >
-            <a class="dropdown-item" href="#">Usuario</a>
-            <a class="dropdown-item" href="#">Administrador</a>
+            <a class="dropdown-item"  (click)="UserType();" >Usuario</a>
+            <a class="dropdown-item"   data-toggle="modal" data-target="#exampleModal">Administrador</a>
           </a>
     
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > 
@@ -54,6 +53,48 @@
       </ul>
   </div>
 </nav>
+
+
+
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Por favor, si es un Administrador introduzca la contraseña de Administrador
+      </div>
+
+            <input  
+                id="password"
+                type="password" 
+                value=""
+                placeholder="contraseña" 
+                aria-describedby="basic-addon1"
+            >
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" (click)="Verify()" >Entrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
 
 <router-outlet></router-outlet>

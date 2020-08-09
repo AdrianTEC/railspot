@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AgmDirectionModule} from "agm-direction"
+import  Estaciones from 'src/app/classes/JSON_INFO/Estaciones.json'
 
 
 @Component({
@@ -10,6 +11,7 @@ import {AgmDirectionModule} from "agm-direction"
 
 
 export class GrafoComponent implements OnInit {
+  public markers:{label:string, lat:number, lng:number}[] = Estaciones;
   
   lat1 = 9.859392;
   lng1 = -83.910825;
@@ -38,28 +40,13 @@ export class GrafoComponent implements OnInit {
   public do()
     {
         this.markers.push({
+          label:"newStation",
           lat: 9.854387,
           lng:-83.911511 ,
         });
 
     }
-    markers: marker[] = [
-      { 
-        lat: 9.854487,
-        lng: -83.910514,
-        label: 'Estación acuatica del lago',
-      },
-      { 
-        lat: 9.858962,
-        lng: -83.910431,
-        label: 'Estacion casa de Yordan',
-      },
-      { 
-        lat: 9.858162,
-        lng: -83.910231,
-        label: 'Estación del futuro',
-      }
-    ]
+
 }
 
 

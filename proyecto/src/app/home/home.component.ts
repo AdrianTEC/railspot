@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import Recibos from './recibos.json';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,8 +7,9 @@ import Recibos from './recibos.json';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  public recibos:{id:string, fecha:string}[] = Recibos;
-  constructor() { }
+  constructor(private route: ActivatedRoute, private router: Router) {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+  }
 
   ngOnInit(): void {
   }
