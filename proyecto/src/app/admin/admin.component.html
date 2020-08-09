@@ -1,2 +1,60 @@
-<p>Comprar Boletos</p>
+<div class="image">
+            
+        <div class="btn-group btn-group-toggle btn-group-lg " data-toggle="buttons" > 
+            
+            <label class="btn btn-secondary active">
+                <input type="radio" name="options" id="option3" autocomplete="off"> Modificar Ruta
+            </label>
 
+            <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option3" autocomplete="off"> Crear Ruta
+            </label>
+
+            <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option3" autocomplete="off"> Borrar Ruta
+            </label>
+
+            <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option3" autocomplete="off"data-toggle="modal" data-target="#addRoute"> Visualizar Compras
+            </label>
+    
+</div>
+        <div class="texto-encima">Bienvenido Técnico de Railspot</div>
+</div>
+
+
+<!--
+
+
+////////////////////////////////////________VENTANA Anadir Ruta___________///////////////////////////////////////////////////////////////
+
+
+
+--> 
+
+
+<div class="modal fade" id="addRoute" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        
+        <!--Titulo-->
+        <div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">Crear Ruta</h5></div>
+        <!--Cuerpo-->
+        <div class="modal-body">Bienvenido a la interfaz de creación de estaciones, por favor introduzca el nombre, la Longitud y latitud de la nueva estación </div>
+  
+              <input  
+                  id="password"
+                  type="password" 
+                  value=""
+                  placeholder="contraseña" 
+                  aria-describedby="basic-addon1"
+              >
+  
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary"  data-dismiss="modal" >Entrar</button>
+        </div>
+
+      </div>
+    </div>
+  </div>

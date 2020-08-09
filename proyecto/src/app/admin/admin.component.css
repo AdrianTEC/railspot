@@ -1,0 +1,18 @@
+.image{
+    height:70%; background-size:cover; width:auto;
+    background-image:url('https://wallpaperstock.net/volc%C3%A1n-himmel-costa-rica-wallpapers_48091_1920x1200.jpg');
+    background-position:50% 50%;
+  }
+.texto-encima{
+    position: absolute;
+    top: 300px;
+    left: 10px;
+    font-size:80px ;
+    color: cornsilk;
+}
+.NavbarButton
+    {
+        width: 50%;
+        height: 5%;
+
+    }

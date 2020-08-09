@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import {Almacen} from './classes/Almacen';
-import { ActivatedRoute, Router } from '@angular/router';
-
 
 
 
@@ -10,49 +8,52 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+
 export class AppComponent 
-{
-  title = 'proyecto';
+  {
+    title = 'proyecto';
 
-  public UserType()
-    {
-      console.log("USUARIO");
-      Almacen.setAdmin(false);
-    }
-    public AdminType()
-    {
+    public UserType()
+      {
+        console.log("USUARIO");
+        Almacen.setAdmin(false);
+      }
 
-      console.log("AMINISTRADOR");
-      Almacen.setAdmin(true);
-    }
-  public Verify()
-    {
 
-      var x = (<HTMLInputElement>document.getElementById("password")).value;;
+  /**
+   * Verifica la contrasena ingresada 
+   * @param nothing
+   * @author Adrian Gonzalez
+   * @returns nothing
+   */
+    public Verify()
+      {
 
-      if(x=="tec")
-        {
-          Almacen.setAdmin(true);
-          console.log("administrador");
-          //window.location.href = "http://localhost:4200/Admin"; 
-        }
-        else  
-        {
-          window.location.href = "http://localhost:4200/home"; 
+        var x = (<HTMLInputElement>document.getElementById("password")).value;;
 
-        }
-    }
-
-  public Directioner()
-    {
-
-        if(Almacen.getAdmin())
+        if(x=="tec")
           {
-            return"/Admin";
+            Almacen.setAdmin(true);
           }
-        else
-          {
-            return"/home";
-          }
-    }  
-}
+
+      }
+  /**
+   * Retorna al routerlink la dirección de la ventana
+   * @param nothing
+   * @author Adrian Gonzalez
+   * @returns String 
+   */
+    public Directioner()
+      {
+
+          if(Almacen.getAdmin())
+            {
+              return"/Admin";
+            }
+          else
+            {
+              return"/home";
+            }
+      }  
+  }

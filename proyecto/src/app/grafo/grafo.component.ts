@@ -21,21 +21,56 @@ export class GrafoComponent implements OnInit {
       lng: -83.910431 },
     destination: { lat: 9.858162,
       lng: -83.910231 },
-    renderOptions: { polylineOptions: { strokeColor: '#f00' } },
   }, {
     origin: {lat: 9.858162,
       lng: -83.910231},
     destination: { lat: 9.854487,  lng: -83.910514 },
-    renderOptions: { polylineOptions: { strokeColor: '#0f0' } },
   }];
 
 
   ngOnInit() {
    
   }
-   
-    
-  
+
+  public renderOptions = 
+    {
+
+
+
+      suppressMarkers: true,
+      polylineOptions: 
+        { 
+          
+          
+          strokeOpacity: 1,
+          icons: [
+            {
+              icon:     {
+                path: 'M 0,0 5,15 -5,15 0,0 z',
+            fillColor: 'blue',
+            fillOpacity: 1,
+                strokeOpacity: 1,
+                scale: 1
+              },
+              offset: "0",
+              repeat: "30px"
+            }
+          ],
+        },
+      
+    }
+  public markerOptions = 
+    {
+      origin: 
+      {
+
+        opacity: 0,
+      },
+      destination: 
+      {
+          opacity: 0,
+      },
+  }
 
   public do()
     {

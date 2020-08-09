@@ -1,13 +1,29 @@
+<!--
 
+
+////////////////////////////////////________NAV BAR____________///////////////////////////////////////////////////////////////
+
+
+
+--> 
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 
 
   <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
       <ul class="navbar-nav mr-auto">
+
+<!--/////////________GRAFO____________//////////--> 
+
+
           <li class="nav-item">
-                <a class="nav-link" href="#" routerLink="/grafo"> Mapa
-                  <img src="assets/images/grafo.png " height="50" width="50">
+                <a class="nav-link" 
+                  href="#" 
+                  routerLink="/grafo"> Mapa
+                  <img 
+                      src="assets/images/grafo.png " 
+                      height="50" width="50"
+                  >
                 </a>
           </li>
 
@@ -15,15 +31,22 @@
   </div>
 
 
+<!--/////////________HOME____________//////////--> 
 
   <div class="mx-auto order-0">
 
-        <a  class="nav-link"   routerLink={{Directioner()}}>
-            <img src="assets/images/icon.png " height="50" width="50 " >   
+        <a  
+              class="nav-link"   
+              routerLink={{Directioner()}}>
+              <img src="assets/images/icon.png " 
+                height="50" 
+                width="50 " 
+              >   
         </a>
   </div>
   
 
+<!--/////////_______LOGIN____________//////////--> 
   
   <div class="mx-auto order-0">
     <h4 style="color:white;"  >RailSpot</h4>
@@ -31,23 +54,22 @@
 
   <div class="navbar-collapse collapse w-100 order-1 dual-collapse2">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown  dropleft">
+              <li class="nav-item dropdown  dropleft">
 
+                    <a class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink" >
+                          <a class="dropdown-item"  (click)="UserType();" >Usuario</a>
+                          <a class="dropdown-item"   data-toggle="modal" data-target="#exampleModal">Administrador</a>
+                    </a>
+              
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > 
+                          <img src="assets/images/person.png " height="50" width="50">
+                    </a>
+              
+              </li>
 
-          <a class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink" >
-            <a class="dropdown-item"  (click)="UserType();" >Usuario</a>
-            <a class="dropdown-item"   data-toggle="modal" data-target="#exampleModal">Administrador</a>
-          </a>
-    
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > 
-            <img src="assets/images/person.png " height="50" width="50">
-          </a>
-         
-        </li>
-
-          <li class="nav-item">
-              <a class="nav-link" href="#"></a>
-          </li>
+              <li class="nav-item">
+                    <a class="nav-link" href="#"></a>
+              </li>
 
 
       </ul>
@@ -59,7 +81,14 @@
 
 
 
+<!--
 
+
+////////////////////////////////////________VENTANA CONTRASEÑA___________///////////////////////////////////////////////////////////////
+
+
+
+--> 
 
 
 
@@ -87,7 +116,7 @@
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" (click)="Verify()" >Entrar</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="Verify()" >Entrar</button>
       </div>
     </div>
   </div>
