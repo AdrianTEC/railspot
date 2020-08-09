@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Recibos from './recibos.json';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  public recibos:{id:string, fecha:string}[] = Recibos;
   constructor() { }
 
   ngOnInit(): void {
