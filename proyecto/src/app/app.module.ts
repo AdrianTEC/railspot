@@ -4,8 +4,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { GrafoComponent } from './grafo/grafo.component';
-import { AgmCoreModule } from '@agm/core';
+import { AgmCoreModule, GoogleMapsAPIWrapper} from '@agm/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { AgmDirectionModule } from 'agm-direction';
 
 @NgModule({
   declarations: [
@@ -17,11 +18,14 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAjoMJHc1j-7OOm2WtyHXLwe9p1EnnDLWo'
+      apiKey: 'AIzaSyD7RqZCsIGc_9YLfIFhfb4lZWj_aVCNg7I'
     }),
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    AgmDirectionModule
+    
+    
   ],
-  providers: [],
+  providers: [GoogleMapsAPIWrapper],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
