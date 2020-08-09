@@ -1,7 +1,6 @@
 <!--
 
-  <agm-direction *ngFor="let dir of dirs" [origin]="dir.origin" [destination]="dir.destination" [renderOptions]="dir.renderOptions">
-  </agm-direction>
+
   
 
 ////////////////////////////////////_______MAPA_____________///////////////////////////////////////////////////////////////
@@ -10,7 +9,8 @@
 
 --> 
 <agm-map [latitude]= "lat1" [longitude]="lng1"  [zoom]=15>
-
+  <agm-direction *ngFor="let dir of dirs" [origin]="dir.origin" [destination]="dir.destination" [renderOptions]="dir.renderOptions">
+  </agm-direction>
   <agm-marker 
           *ngFor="let m of markers;"
                 [latitude]="m.lat"
