@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AgmDirectionModule} from "agm-direction"
 import  Estaciones from 'src/app/classes/JSON_INFO/Estaciones.json'
-
+import Rutas from 'src/app/classes/JSON_INFO/Rutas.json'
 
 @Component({
   selector: 'app-grafo',
@@ -11,21 +11,13 @@ import  Estaciones from 'src/app/classes/JSON_INFO/Estaciones.json'
 
 
 export class GrafoComponent implements OnInit {
+
   public markers:{label:string, lat:number, lng:number}[] = Estaciones;
+  public dirs: {label:string, lat:number, lng:number}[] = Rutas;
   
   lat1 = 9.859392;
   lng1 = -83.910825;
 
-  public dirs: Array<any> = [{
-    origin: { lat: 9.858962,
-      lng: -83.910431 },
-    destination: { lat: 9.858162,
-      lng: -83.910231 },
-  }, {
-    origin: {lat: 9.858162,
-      lng: -83.910231},
-    destination: { lat: 9.854487,  lng: -83.910514 },
-  }];
 
 
   ngOnInit() {
@@ -42,7 +34,7 @@ export class GrafoComponent implements OnInit {
         { 
           
           
-          strokeOpacity: 1,
+          strokeOpacity: 0.5,
           icons: [
             {
               icon:     {
@@ -50,7 +42,7 @@ export class GrafoComponent implements OnInit {
             fillColor: 'blue',
             fillOpacity: 1,
                 strokeOpacity: 1,
-                scale: 1
+                scale: 0.5
               },
               offset: "0",
               repeat: "30px"
