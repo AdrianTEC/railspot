@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AgmDirectionModule} from "agm-direction"
 import  Estaciones from 'src/app/classes/JSON_INFO/Estaciones.json'
-import Rutas from 'src/app/classes/JSON_INFO/Rutas.json'
 
 @Component({
   selector: 'app-grafo',
@@ -13,7 +12,6 @@ import Rutas from 'src/app/classes/JSON_INFO/Rutas.json'
 export class GrafoComponent implements OnInit {
 
   public markers:{label:string, lat:number, lng:number}[] = Estaciones;
-  public dirs: {label:string, lat:number, lng:number}[] = Rutas;
   
   lat1 = 9.859392;
   lng1 = -83.910825;
@@ -92,19 +90,17 @@ export class GrafoComponent implements OnInit {
   }
 
 
-
-
+  public  icons: [{
+    icon: {path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW},
+    offset: '100%',
+    repeat: '20px'
+}]
 
   public renderOptions = 
     {
 
 
 
-      suppressMarkers: true,
-      polylineOptions: 
-        { 
-          
-          
           strokeOpacity: 0.5,
           icons: [
             {
@@ -119,9 +115,8 @@ export class GrafoComponent implements OnInit {
               repeat: "30px"
             }
           ],
-        },
+        }
       
-    }
   public markerOptions = 
     {
       origin: 

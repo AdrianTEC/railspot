@@ -9,33 +9,49 @@
 
 --> 
 
-<agm-map [latitude]= "lat1" [longitude]="lng1"  [zoom]=15>
+<agm-map [latitude]= "lat1" [longitude]="lng1"  [zoom]=10>
+    <!----
   <agm-direction 
 
-        *ngFor="let dir of dirs" 
-        [origin]="dir.origin" 
-        [destination]="dir.destination" 
+        *ngFor="let m of dirs" 
+        [origin]="m.origin" 
+        [destination]="m.destination" 
         [renderOptions]="renderOptions"
         [markerOptions]="markerOptions"
         >
 
   </agm-direction>
+---->
+
+ 
   <agm-marker 
           *ngFor="let m of markers;"
                 [latitude]="m.lat"
                 [longitude]="m.lng"
                 [label]="m.label"
  ></agm-marker>
-   
-      <agm-polyline [visible]="true" [strokeWeight]="3" [strokeColor]="'#07b57a'">
-            <agm-polyline-point
-            *ngFor="let coordinate of latlng; let i=index"
-            [latitude]="coordinate[0]"
-            [longitude]="coordinate[1]">
 
-</agm-polyline-point>
-</agm-polyline>
+        <li *ngFor="let m of markers;">
+            <agm-polyline  [visible]="true"  [strokeWeight]="1"  *ngFor="let dir of m.rutas">        
 
+                <!--Recorro el JSON array de la estación-->
+                            <!--ORIGEN-->
+                            <agm-polyline-point
+                            
+                                [latitude]=m.lat
+                                [longitude]= m.lng>
+                            </agm-polyline-point>
+
+                            <!--DESTINO-->
+                            <agm-polyline-point
+                                [latitude]=dir.destination.lat
+                                [longitude]= dir.destination.lng>
+                            </agm-polyline-point>
+                    
+                            <agm-icon-sequence [strokeColor]="'black'" [repeat]="'30px'"  [strokeWeight]="1" [fillColor]="'blue'" [fillOpacity]=1  [scale]="0.5"  [path]="'M 0,0 5,15 -5,15 0,0 z'"></agm-icon-sequence>
+                    
+            </agm-polyline>
+        </li>
 </agm-map>
 
 <!--
