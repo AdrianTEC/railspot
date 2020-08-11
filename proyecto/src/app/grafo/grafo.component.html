@@ -26,9 +26,17 @@
                 [longitude]="m.lng"
                 [label]="m.label"
  ></agm-marker>
-  </agm-map> 
+   
+      <agm-polyline [visible]="true" [strokeWeight]="3" [strokeColor]="'#07b57a'">
+            <agm-polyline-point
+            *ngFor="let coordinate of latlng; let i=index"
+            [latitude]="coordinate[0]"
+            [longitude]="coordinate[1]">
 
+</agm-polyline-point>
+</agm-polyline>
 
+</agm-map>
 
 <!--
 
