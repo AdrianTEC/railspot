@@ -25,7 +25,7 @@
                 [latitude]="m.lat"
                 [longitude]="m.lng"
                 [label]="m.label"
-          ></agm-marker>
+ ></agm-marker>
   </agm-map> 
 
 
@@ -67,9 +67,12 @@
 
         <div class="dropdown-menu" 
             aria-labelledby="2">
-              <button class="dropdown-item" type="button">Cartago</button>
-              <button class="dropdown-item" type="button">TEC</button>
-              <button class="dropdown-item" type="button">Taras</button>
+              <button class="dropdown-item" type="button"
+                    *ngFor="let m of markers;"
+              
+              
+              >{{ m.label}}</button>
+
         </div>
     </div>
  <!--
@@ -111,6 +114,7 @@
         <input 
             type="text" 
             class="form-control" 
+            id="tiquetes"
             placeholder="Cantidad de boletos" 
             aria-label="Username" 
             aria-describedby="basic-addon1">
@@ -123,11 +127,14 @@
 
 
 --> 
-
-    <button onclick="foo()" 
+<button (click)="precio();"
             type="button" 
             class="btn btn-primary">
             Comprobar precio
+
     </button>
 
+
+
+    <h1 id="prueba">hola</h1>
 </div>

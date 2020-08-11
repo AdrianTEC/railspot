@@ -14,11 +14,16 @@ export class AppComponent
   {
     title = 'proyecto';
 
+
+
+      
+
     public UserType()
       {
         console.log("USUARIO");
         Almacen.setAdmin(false);
-      }
+      } 
+
 
 
   /**

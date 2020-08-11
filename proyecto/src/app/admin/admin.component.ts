@@ -21,4 +21,9 @@ export class AdminComponent implements OnInit {
 
     }
 
+  public hola()
+    {
+      console.log("serví");
+    }
+
 }

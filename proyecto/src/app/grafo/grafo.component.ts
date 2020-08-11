@@ -23,6 +23,45 @@ export class GrafoComponent implements OnInit {
   ngOnInit() {
    
   }
+  
+
+
+
+
+  public precio(){
+
+    var  x = (<HTMLInputElement>document.getElementById("tiquetes")).value;
+    let cantidad = Number (x);
+    let precio: number = 100;
+    let costo = cantidad*precio;
+    let descuento=0;
+    if (cantidad == 1)
+    {
+
+     descuento = 0;
+
+    }
+
+    else if (cantidad <= 45)
+    {
+
+     descuento = (costo*(cantidad*0.02));
+
+    }
+
+    else 
+    {
+       descuento =  costo*0.90;
+
+    }
+
+    costo-=descuento;
+    document.getElementById("prueba").innerHTML = costo.toString();
+  }
+
+
+
+
 
   public renderOptions = 
     {

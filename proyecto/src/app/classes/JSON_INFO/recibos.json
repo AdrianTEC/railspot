@@ -1,14 +1,49 @@
 [
     {
-        "id":"65187153454",
-        "fecha": "20/20/20"
+        "id":"123",
+        "compras":
+            [
+                {
+                    "costo":30000,
+                    "desde": "Estación de Paraíso",
+                    "hasta": "Cartago",
+                    "fecha":"12/12/12"
+                }
+            ]
+
+
+
     },
     {
         "id":"54681375911",
-        "fecha": "20/20/20"
+        "compras":
+            [
+
+                {
+                    "costo":30000,
+                    "desde": "Estación de Paraíso",
+                    "hasta": "Cartago",
+                    "fecha":"12/12/12"
+                }
+
+            ]
+
+
     },
     {
         "id":"45927984304",
-        "fecha": "20/20/20"
+        "compras":
+            [
+
+                {
+                    "costo":30000,
+                    "desde": "Estación de Paraíso",
+                    "hasta": "Cartago",
+                    "fecha":"12/12/12"
+                }
+
+            ]
+
+
     }
 ]
