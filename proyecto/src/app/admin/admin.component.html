@@ -13,13 +13,33 @@
             <label class="btn btn-secondary">
                 <input type="radio" name="options" id="option3" autocomplete="off"> Borrar Ruta
             </label>
+            <div class="dropdown">
+              <button id="test" class="btn btn-secondary dropdown-toggle" 
+                      type="button" id="2" 
+                      data-toggle="dropdown"
+                      aria-haspopup="true" 
+                      aria-expanded="false">
+                      Visualizar Compras
+              </button>
+      
+              <div class="dropdown-menu" 
+                  aria-labelledby="2">
+                    <button id="test" class="dropdown-item" type="button"
+                          *ngFor="let m of recibos;"
+                          value="m.id"
+                          (click)="LlamarRecibo(m.id, m.compras);"
+                          data-toggle="modal"
+                          data-target="#modalrecibos"
 
-            <label class="btn btn-secondary">
-                <input type="radio" name="options" id="option3" autocomplete="off"data-toggle="modal" data-target="#addRoute"> Visualizar Compras
-            </label>
+                    >{{m.id}}</button>
+      
+              </div>
+          </div>
     
 </div>
-        <div class="texto-encima">Bienvenido Técnico de Railspot</div>
+        <div class="texto-encima">
+          Bienvenido Técnico de Railspot
+        </div>
 </div>
 
 
@@ -33,28 +53,26 @@
 --> 
 
 
-<div class="modal fade" id="addRoute" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalrecibos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         
         <!--Titulo-->
-        <div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">Crear Ruta</h5></div>
-        <!--Cuerpo-->
-        <div class="modal-body">Bienvenido a la interfaz de creación de estaciones, por favor introduzca el nombre, la Longitud y latitud de la nueva estación </div>
-  
-              <input  
-                  id="password"
-                  type="password" 
-                  value=""
-                  placeholder="contraseña" 
-                  aria-describedby="basic-addon1"
-              >
-  
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary"  data-dismiss="modal" >Entrar</button>
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            Ver tiquetes comprados por {{costo}}
+          </h5>
         </div>
-
+        <!--Cuerpo-->
+        <div class="modal-body">
+          Introduzca un usuario para ver los tiquetes que haya comprado
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Cerrar
+          </button>
+        </div>
       </div>
     </div>
   </div>
+  <div class="d-flex flex-row">
