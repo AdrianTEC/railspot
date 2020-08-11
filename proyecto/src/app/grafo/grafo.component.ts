@@ -118,17 +118,13 @@ export class GrafoComponent implements OnInit {
         }
       
   public markerOptions = 
-    {
-      origin: 
-      {
-
-        opacity: 0,
-      },
-      destination: 
-      {
-          opacity: 0,
-      },
-  }
+  {
+    url: './assets/images/icon.png',
+    scaledSize: {
+        width: 40,
+        height: 40
+    }
+}
 
   public do()
     {

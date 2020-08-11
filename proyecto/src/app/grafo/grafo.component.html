@@ -28,8 +28,14 @@
           *ngFor="let m of markers;"
                 [latitude]="m.lat"
                 [longitude]="m.lng"
-                [label]="m.label"
- ></agm-marker>
+                [iconUrl]="markerOptions"
+
+                (markerClick)="clickedMarker(infowindow)">
+                <agm-info-window #infowindow>
+                    {{m.label}}
+                  </agm-info-window>
+            
+            </agm-marker>
 
         <li *ngFor="let m of markers;">
             <agm-polyline  [visible]="true"  [strokeWeight]="1"  *ngFor="let dir of m.rutas">        
