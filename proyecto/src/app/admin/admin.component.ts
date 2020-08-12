@@ -1,6 +1,5 @@
 import { Component, OnInit, ɵReflectionCapabilities } from '@angular/core';
 import Recibos from './recibos.json';
-import { stringify } from '@angular/compiler/src/util';
 
 @Component
   (
@@ -17,7 +16,6 @@ export class AdminComponent implements OnInit {
 
   public currentID:any;
   public currentCompras:any;
-  public costo:any;
 
 /**
    * Verifica la contrasena ingresada 
@@ -29,7 +27,6 @@ export class AdminComponent implements OnInit {
   {
     this.currentID = id;
     this.currentCompras = compras;
-    this.costo = compras.costo;
 
   }
 

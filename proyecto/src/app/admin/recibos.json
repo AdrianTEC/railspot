@@ -2,31 +2,43 @@
     {
         "id":"123",
         "compras":
-        {
-            "costo":500,
-            "desde": "Estación de Paraíso",
-            "hasta": "Cartago",
-            "fecha":"12/12/12"
-        }
+        [
+            {
+                "costo":500,
+                "desde": "Estación de Paraíso",
+                "hasta": "Cartago",
+                "fecha":"12/12/12"
+            },
+            {
+                "costo":700,
+                "desde": "Estación de Paraíso",
+                "hasta": "Cartago",
+                "fecha":"20/12/12"
+            }
+        ]
     },
     {
         "id":"54681375911",
         "compras":
-        {
-            "costo":1000,
-            "desde": "Estación de Paraíso",
-            "hasta": "Cartago",
-            "fecha":"12/12/12"
-        }
+        [
+            {
+                "costo":1000,
+                "desde": "Estación de Paraíso",
+                "hasta": "Cartago",
+                "fecha":"12/12/12"
+            }
+        ]
     },
     {
         "id":"45927984304",
         "compras":
-        {
-            "costo":1500,
-            "desde": "Estación de Paraíso",
-            "hasta": "Cartago",
-            "fecha":"12/12/12"
-        }
+        [
+            {
+                "costo":1500,
+                "desde": "Estación de Paraíso",
+                "hasta": "Cartago",
+                "fecha":"12/12/12"
+            }
+        ]
     }
 ]
