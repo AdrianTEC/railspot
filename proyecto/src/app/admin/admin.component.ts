@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵReflectionCapabilities } from '@angular/core';
+import Recibos from './recibos.json';
 
 @Component
   (
@@ -11,10 +12,23 @@ import { Component, OnInit } from '@angular/core';
 
 export class AdminComponent implements OnInit {
 
-  constructor() 
-    {
-      
-    }
+  public recibos:{id:string, compras:any}[] = Recibos;
+
+  public currentID:any;
+  public currentCompras:any;
+
+/**
+   * Verifica la contrasena ingresada 
+   * @param nothing
+   * @author Gabriel Vargas
+   * @returns nothing
+   */
+  public LlamarRecibo(id:any, compras:any)
+  {
+    this.currentID = id;
+    this.currentCompras = compras;
+
+  }
 
   ngOnInit(): void 
     {
