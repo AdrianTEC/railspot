@@ -8,100 +8,107 @@
             <label class="btn btn-secondary active">
                 <input type="radio" name="options" id="option3" autocomplete="off"> Modificar Ruta
             </label>
-
             <label class="btn btn-secondary">
                 <input type="radio" name="options" id="option3" (click)="hola();" autocomplete="off"> Crear Ruta
             </label>
-
             <label class="btn btn-secondary">
                 <input type="radio" name="options" id="option3" autocomplete="off"> Borrar Ruta
             </label>
-<!--
+            <label class="btn btn-secondary">
+                      <div class="dropdown">
+                        <button id="test" class="btn btn-secondary dropdown-toggle" 
+                                type="button" id="2" 
+                                data-toggle="dropdown"
+                                aria-haspopup="true" 
+                                aria-expanded="false">
+                                Visualizar Compras por Fecha
+                        </button>
+                    
+                          <div class="dropdown-menu" 
+                                              aria-labelledby="2">
+                          
+                                            <li  *ngFor="let User of recibos;">
+                                                <button id="test" class="dropdown-item" type="button"
+                                                      *ngFor="let compra of User.compras;"
+                                                      value="compra.fecha"
+                                                      (click)="LlamarRecibo(compra.fecha, compra);"
+                                                      data-toggle="modal"
+                                                      data-target="#modalrecibos"
+                          
+                                                >{{compra.fecha}}</button>
+                                          </li>
+                          </div>
+                      </div>
 
-////////////////////////////////////________Contenido dropdown ID___________///////////////////////////////////////////////////////////////
-
--->
-            <div class="dropdown">
-              <button id="test" class="btn btn-secondary dropdown-toggle" 
-                      type="button" id="2" 
-                      data-toggle="dropdown"
-                      aria-haspopup="true" 
-                      aria-expanded="false">
-                      Visualizar Compras por ID
-              </button>
-      
-              <div class="dropdown-menu" 
-                  aria-labelledby="2">
-                    <button id="test" class="dropdown-item" type="button"
-                          *ngFor="let m of recibos;"
-                          value="m.id"
-                          (click)="LlamarRecibo(m.id, m.compras);"
-                          data-toggle="modal"
-                          data-target="#modalrecibos"
-
-                    >{{m.id}}</button>
-<!--
-
-////////////////////////////////////________Contenido dropdown Fechas___________///////////////////////////////////////////////////////////////                    
-
--->
-              </div>
-
+            </label>
+            <label class="btn btn-secondary">
               <div class="dropdown">
                 <button id="test" class="btn btn-secondary dropdown-toggle" 
                         type="button" id="2" 
                         data-toggle="dropdown"
                         aria-haspopup="true" 
                         aria-expanded="false">
-                        Visualizar Compras por Fecha
+                        Visualizar Compras por Ruta
                 </button>
             
-            <div class="dropdown-menu" 
-                                aria-labelledby="2">
-            
-                              <li  *ngFor="let User of recibos;">
-                                  <button id="test" class="dropdown-item" type="button"
-                                        *ngFor="let compra of User.compras;"
-                                        value="compra.fecha"
-                                        (click)="LlamarRecibo(compra.fecha, compra);"
-                                        data-toggle="modal"
-                                        data-target="#modalrecibos"
-            
-                                  >{{compra.fecha}}</button>
-                            </li>
+                  <div class="dropdown-menu" 
+                                      aria-labelledby="2">
+                  
+                                    <li  *ngFor="let User of recibos;">
+                                        <button id="test" class="dropdown-item" type="button"
+                                              *ngFor="let compra of User.compras;"
+                                              value="compra.fecha"
+                                              (click)="LlamarRecibo(compra.fecha, compra);"
+                                              data-toggle="modal"
+                                              data-target="#modalrecibos"
+                  
+                                        >{{compra.desde}} a  {{compra.hasta}}</button>
+                                  </li>
+                  </div>
+              </div>
+
+            </label>
+            <label class="btn btn-secondary">
+                    <div class="dropdown">
+                            <button id="test" class="btn btn-secondary dropdown-toggle" 
+                                    type="button" id="2" 
+                                    data-toggle="dropdown"
+                                    aria-haspopup="true" 
+                                    aria-expanded="false">
+                                    Visualizar Compras por ID
+                            </button>
+                    
+                                  <div class="dropdown-menu" 
+                                      aria-labelledby="2">
+                                        <button id="test" class="dropdown-item" type="button"
+                                              *ngFor="let m of recibos;"
+                                              value="m.id"
+                                              (click)="LlamarRecibo(m.id, m.compras);"
+                                              data-toggle="modal"
+                                              data-target="#modalrecibos"
+
+                                        >{{m.id}}</button>
+                                  </div>
+                      </div>
+            </label>
+
+<!--
+
+////////////////////////////////////________Contenido dropdown ID___________///////////////////////////////////////////////////////////////
+
+-->
+
+
+
 
 <!--
 
 ////////////////////////////////////________Contenido dropdown Ruta___________///////////////////////////////////////////////////////////////                            
 
 --> 
-            </div>
         
-                </div>
-                <div class="dropdown">
-                  <button id="test" class="btn btn-secondary dropdown-toggle" 
-                          type="button" id="2" 
-                          data-toggle="dropdown"
-                          aria-haspopup="true" 
-                          aria-expanded="false">
-                          Visualizar Compras por Ruta
-                  </button>
-          
-                  <div class="dropdown-menu" 
-                      aria-labelledby="2">
-                        <button id="test" class="dropdown-item" type="button"
-                              *ngFor="let recibo of recibos;"
-                              value="recibo.id"
-                              (click)="LlamarRecibo(recibo.id, recibo.compras);"
-                              data-toggle="modal"
-                              data-target="#modalrecibos"
+
     
-                        >{{recibo.id}}</button>
-          
-                  </div>
-          </div>
-    
-</div>
         <div class="texto-encima">
           Bienvenido Técnico de Railspot
         </div>
