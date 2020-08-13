@@ -237,6 +237,12 @@ export class AdminComponent implements OnInit {
 
         }
     }
+    /**
+   * BORRA UNA RUTA ENTRE DOS ESTACIONES establecidas en la ventana por una  tercera
+   * @param nothing
+   * @author Yordan Rojas
+   * @returns nothing
+   */ 
     public borrarRuta(){
       if (document.getElementById("verificacion").innerHTML == "existe"){
           Almacen.getmarkers().forEach(estacion => {
