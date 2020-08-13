@@ -35,7 +35,6 @@ export class Graph {
     dijkstra(start: string, finish: string): string[] {
 
         let nodes: any = {};
-        let visitedVertex: string[] = [];
         let graphVertices = this.vertices
 
         for (let i in graphVertices) {
