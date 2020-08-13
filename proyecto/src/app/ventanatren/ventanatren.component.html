@@ -1,0 +1,40 @@
+
+
+    <button id="test" class="dropdown-item" type="button"                                                      
+         *ngFor="let compra of currentCompras;"
+        value="compra.fecha"
+        (click)="LlamarReciboIndi(compra.desde,compra.hasta,compra.fecha,compra.activo,compra.costo);"
+        data-toggle="modal"
+        data-target="#modalrecibosParaFechas"
+        >{{compra.fecha}}
+    </button>
+    <div class="modal fade" id="modalrecibosParaFechas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          
+          <!--Titulo-->
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Ver tiquete comprado el {{currentID}}
+            </h5>
+          </div>
+          <!--Cuerpo-->
+          <div class="modal-body" *ngFor="let compra of currrentCompra;" style='{{returnColor(compra.activo)}}' >
+
+            <h3>--Tiquete--</h3>      
+            <h4>Costo: {{compra.costo}}</h4>
+            <h4>Desde: {{compra.desde}}</h4>
+            <h4>Hasta: {{compra.hasta}}</h4>
+            <h4>Fecha: {{compra.fecha}}</h4>
+            <h4>Estado: {{returnState(compra.activo)}} </h4>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex flex-row">
