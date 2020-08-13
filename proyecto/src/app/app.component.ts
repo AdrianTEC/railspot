@@ -16,8 +16,11 @@ export class AppComponent
     title = 'proyecto';
 
 
-
-      
+    //crea el grafo
+    public crearbicho ()
+      {
+        Almacen.crearGrafo();
+      }
 
     public UserType()
       {

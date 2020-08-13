@@ -58,16 +58,14 @@ export class GrafoComponent implements OnInit {
     this.costoTotal = costo;
 
   }
-
   public cambiarTexto(cosa:any)
-  {
-      this.currentText= cosa;
-  }
-
+    {
+        this.currentText= cosa;
+    }
   public cambiarTexto2(cosa:any)
-  {
-      this.currentText2= cosa;
-  }
+    {
+        this.currentText2= cosa;
+    }
 
 
 
@@ -145,7 +143,7 @@ export class GrafoComponent implements OnInit {
               repeat: "30px"
             }
           ],
-        }  
+    }  
   public markerOptions = 
       {
       url: './assets/images/icon.png',
@@ -153,10 +151,14 @@ export class GrafoComponent implements OnInit {
           width: 40,
           height: 40
       }
-}
+      }
 
- 
-    name = 'Angular';
+  
+
+
+
+
+
 
 
 

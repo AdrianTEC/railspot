@@ -10,20 +10,22 @@
 --> 
 
 <agm-map [latitude]= "lat1" [longitude]="lng1"  [zoom]=10>
-    <!----
-  <agm-direction 
 
-        *ngFor="let m of dirs" 
-        [origin]="m.origin" 
-        [destination]="m.destination" 
-        [renderOptions]="renderOptions"
-        [markerOptions]="markerOptions"
-        >
+    <!---
+    <li
+    *ngFor="let r of markers"  >
+        <agm-direction 
+                *ngFor="let m of r.rutas"
+                [origin]="{lat: r.lat,lng: r.lng}" 
+                [destination]="m.destination" 
+                [renderOptions]="renderOptions"
+                [markerOptions]="markerOptions"
+                >
 
-  </agm-direction>
----->
+        </agm-direction>
+   </li>
 
- 
+ --->
   <agm-marker 
           *ngFor="let m of markers;"
                 [latitude]="m.lat"
