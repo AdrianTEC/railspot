@@ -33,6 +33,11 @@
             <button type="button" class="btn btn-secondary" data-dismiss="modal">
               Cerrar
             </button>
+            <div class="modal-footer">
+              <button *ngFor="let compra  of currrentCompra"
+              value="compra.fecha" type="button" class="btn btn-secondary" (click)="consumir(compra.desde,compra.hasta,compra.fecha,compra.activo,compra.costo);">
+                Consumir
+              </button>
           </div>
         </div>
       </div>
