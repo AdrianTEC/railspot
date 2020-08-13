@@ -245,12 +245,44 @@
       <!--Cuerpo-->
       <div class="modal-body">
         <form>
-          <div  class="form-group">
-            <label>Origen</label>
-            <input type="text" class="form-control" id="origennruta">
-            <label>Destino</label>
-            <input type="text" class="form-control" id="destinonruta">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" 
+                    type="button" id="2" 
+                    data-toggle="dropdown"
+                    aria-haspopup="true" 
+                    aria-expanded="false">
+                      Parada inicial
+            </button>
+    
+            <div class="dropdown-menu" 
+                aria-labelledby="2">
+                  <button class="dropdown-item" type="button"
+                        *ngFor="let m of markers;"
+                  
+                  
+                  >{{ m.label}}</button>
+    
+            </div>
+        </div>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" 
+                  type="button" id="2" 
+                  data-toggle="dropdown"
+                  aria-haspopup="true" 
+                  aria-expanded="false">
+                    Parada Final
+          </button>
+  
+          <div class="dropdown-menu" 
+              aria-labelledby="2">
+                <button class="dropdown-item" type="button"
+                      *ngFor="let m of markers;"
+                
+                
+                >{{ m.label}}</button>
+  
           </div>
+      </div>
         </form>
       </div>
       <div class="modal-footer">
