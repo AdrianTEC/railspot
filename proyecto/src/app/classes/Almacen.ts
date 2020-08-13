@@ -5,7 +5,7 @@ export class  Almacen
 
     private static admin:boolean=true;
     private static me:Almacen;
-    private static markers:{label:string, lat:number, lng:number, rutas: [{destination:{lat:any, lng:any}, distancia:any}]}[] = Estaciones;
+    private static markers:{label:string, lat:number, lng:number, rutas: [{label:any,destination:{lat:any, lng:any}, distancia:any}]}[] = Estaciones;
 
     private constructor()
         {

@@ -6,8 +6,8 @@
         "lat": 9.961869,"lng": -84.048579,
         "rutas":
             [
-                {"destination":{"lat":9.981890, "lng":-84.087710}, "distancia":1},
-                {"destination":{"lat":9.955540,"lng": -84.082989},"distancia":1}
+                {"label":"Estación Santo Domingo","destination":{"lat":9.981890, "lng":-84.087710}, "distancia":1},
+                {"label":"Estación de Tibás","destination":{"lat":9.955540,"lng": -84.082989},"distancia":1}
 
             ]
     },
@@ -18,7 +18,7 @@
         ,
         "rutas":
         [
-            {"destination":{"lat":9.998081,"lng": -84.116704},"distancia":1}
+            {"label":"Estación de Heredia", "destination":{"lat":9.998081,"lng": -84.116704},"distancia":1}
         ]
     },
     {
@@ -36,8 +36,8 @@
         ,
         "rutas":
         [  
-                {  "destination":{ "lat":9.929034, "lng": -84.058325},"distancia":1},
-                {"destination":{"lat":9.981890, "lng":-84.087710},"distancia":1},
+                {"label":"Estación de San pedro",  "destination":{ "lat":9.929034, "lng": -84.058325},"distancia":1},
+                {"label":"Estación Santo Domingo","destination":{"lat":9.981890, "lng":-84.087710},"distancia":1},
             {"destination":{}}
                  
         ]
@@ -47,8 +47,8 @@
         "lat":9.929034, "lng": -84.058325,
         "rutas":
         [
-            {"destination":{"lat": 9.961869,"lng": -84.048579},"distancia":1},
-            {  "destination":{"lat":9.945464, "lng": -84.033671},"distancia":1}
+            {"label":"Estacion de Moravia", "destination":{"lat": 9.961869,"lng": -84.048579},"distancia":1},
+            { "label":"Estacion de sabanilla", "destination":{"lat":9.945464, "lng": -84.033671},"distancia":1}
         ]
     },
     {
@@ -57,8 +57,8 @@
         "lat":9.955037, "lng":-84.043306,
         "rutas":
         [
-            {"destination":{"lat":9.955540,"lng": -84.082989},"distancia":1},
-            {"destination":{"lat": 9.961869,"lng": -84.048579},"distancia":1}
+            {"label":"Estación de Tibás","destination":{"lat":9.955540,"lng": -84.082989},"distancia":1},
+            {"label":"Estación de Tibás","destination":{"lat": 9.961869,"lng": -84.048579},"distancia":1}
 
         ]
     },
@@ -67,8 +67,8 @@
         "lat":9.945464, "lng": -84.033671,
         "rutas":
         [
-            {"destination":{"lat":9.864255,"lng": -83.920214},"distancia":1},
-            { "destination":{"lat":9.955037, "lng":-84.043306},"distancia":1
+            {"label":"Estación de Cartago","destination":{"lat":9.864255,"lng": -83.920214},"distancia":1},
+            {"label":"Estacion de Guadalupe", "destination":{"lat":9.955037, "lng":-84.043306},"distancia":1
         }
         ]
 
@@ -79,8 +79,8 @@
         "lat":9.914817,"lng": -84.037091,
         "rutas":
         [
-            {"destination":{"lat":9.945464, "lng": -84.033671},"distancia":1},
-            {"destination":{"lat":9.929034, "lng": -84.058325},"distancia":1}
+            {"label":"Estacion de sabanilla","destination":{"lat":9.945464, "lng": -84.033671},"distancia":1},
+            {"label":"Estación de San pedro","destination":{"lat":9.929034, "lng": -84.058325},"distancia":1}
             
      
 
@@ -99,8 +99,8 @@
         ,
         "rutas":
         [
-            {   "destination":{"lat":9.914817,"lng": -84.037091},"distancia":1},
-            {"destination":{ "lat":9.838734, "lng":-83.865541},"distancia":1}
+            {"label":"Estación de Curridabat",   "destination":{"lat":9.914817,"lng": -84.037091},"distancia":1},
+            {"label":"Estación de Paraíso","destination":{ "lat":9.838734, "lng":-83.865541},"distancia":1}
 
         ]
     },
@@ -110,7 +110,7 @@
         ,
         "rutas":
         [
-            { "destination":{"lat":9.864255,"lng": -83.920214},"distancia":1 } 
+            {"label":"Estación de Cartago", "destination":{"lat":9.864255,"lng": -83.920214},"distancia":1 } 
         ]
 
     }

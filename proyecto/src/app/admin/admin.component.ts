@@ -22,6 +22,7 @@ export class AdminComponent implements OnInit {
   public currentCompras:any;
   public currentText:any = "Parada Final";
   public currentTexto:any = "Parada Inicial";
+  public currentTextito:any = "Nueva Parada Final";
 
   public compraActual:{desde:string, hasta:any,fecha:any,activo:boolean, costo:number}
   public currrentCompra:any;
@@ -125,6 +126,10 @@ export class AdminComponent implements OnInit {
   {
       this.currentTexto= cosa;
   }
+  public cambiarTexto3(cosa:any)
+  {
+      this.currentTextito= cosa;
+  }
 
     public crearRuta (){
       let lat1:any;
@@ -133,23 +138,66 @@ export class AdminComponent implements OnInit {
       let lng2:any;
       
       Almacen.getmarkers().forEach(element1 => {
-        console.log(element1.label + " No joda");
-        if (element1.label == this.currentTexto){
-          console.log(element1.label + " Encontre x");
+        
+        if (element1.label == this.currentTexto){          
               lat1 = element1.lat;
               lng1 = element1.lng;
-
               Almacen.getmarkers().forEach(element => {
-                if (element.label == this.currentText){
-                  console.log(element.label + " Encontre x2");
+                if (element.label == this.currentText){                
                   lat2 = element.lat;
                   lng2 = element.lng;
+                  let nombre: any = element.label;
                   
-                  element1.rutas.push({destination:{ lat:lat2, lng: lng2},distancia: ( Math.abs((lat2-lat1) ** 2 -(lng2-lng1 ) ) **  2)**1/2});
+                  element1.rutas.push({label:nombre, destination:{ lat:lat2, lng: lng2},distancia: ( Math.abs((lat2-lat1) ** 2 -(lng2-lng1 ) ) **  2)**1/2});
             }
           });
         }        
       });  
+    }
+
+    public modificarRuta (){
+      let lat1:any;
+      let lng1:any;
+      let lat2:any;
+      let lng2:any;
+      let lat3:any;
+      let lng3:any;
+
+      Almacen.getmarkers().forEach(element1 => {
+        if (element1.label == this.currentTexto){
+          lat1
+        }
+
+        
+      });
+
+
+    }
+
+    public verificarRuta (){
+      let resultado:any = "no esta registrado";
+      Almacen.getmarkers().forEach(element2 => {
+        if (element2.label == this.currentTexto){
+          element2.rutas.forEach(element => {
+            if (element.label == this.currentText){
+              resultado = "existe";
+            }
+            
+          });
+        }
+      });
+
+
+
+
+
+
+
+
+
+      document.getElementById("ejemplo").innerHTML = resultado;
+
+
     }
 
 
