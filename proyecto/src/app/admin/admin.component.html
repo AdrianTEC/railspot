@@ -260,6 +260,88 @@
                   <button class="dropdown-item" type="button"
                         *ngFor="let m of markers;"
                   
+                            >{{ m.label}}</button>
+    
+            </div>
+        </div>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" 
+                  type="button" id="2" 
+                  data-toggle="dropdown"
+                  aria-haspopup="true" 
+                  aria-expanded="false">
+                    {{currentText}}
+          </button>
+  
+          <div class="dropdown-menu" 
+              aria-labelledby="2">
+                <button class="dropdown-item" type="button"
+                      *ngFor="let m of markers;"
+                      (click)="cambiarTexto(m.label);"
+                
+                        >{{ m.label}}</button>
+  
+          </div>
+      </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" 
+        class="btn btn-secondary" 
+        data-dismiss="modal"
+        (click)="crearRuta();"
+        >
+          Listo
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="d-flex flex-row">
+
+<!--
+
+
+////////////////////////////////////________Contenido dropdown ModificarRuta___________///////////////////////////////////////////////////////////////
+
+
+-->
+<div class="modal fade" id="modalrutas2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+
+
+
+      
+      <!--Titulo-->
+
+
+      
+      
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          Seleccione la ruta que desea modificar
+        </h5>
+      </div>
+
+      <!--Cuerpo-->
+
+      <div class="modal-body">
+        <form>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" 
+                    type="button" id="2" 
+                    data-toggle="dropdown"
+                    aria-haspopup="true" 
+                    aria-expanded="false">
+                      {{currentTexto}}
+            </button>
+    
+            <div class="dropdown-menu" 
+                aria-labelledby="2">
+                  <button class="dropdown-item" type="button"
+                        *ngFor="let m of markers;"
+                        (click)="cambiarTexto2(m.label);"
                   
                   >{{ m.label}}</button>
     
@@ -287,7 +369,11 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+        <button type="button" 
+        class="btn btn-secondary" 
+        data-dismiss="modal"
+        (click)="modificarRuta();"
+        >
           Listo
         </button>
       </div>
@@ -296,7 +382,8 @@
 </div>
 <div class="d-flex flex-row">
 
-<!--
+
+  <!--
 
 
 ////////////////////////////////////________MODAL NORMAL___________///////////////////////////////////////////////////////////////
