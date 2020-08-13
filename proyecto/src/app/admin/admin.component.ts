@@ -237,6 +237,23 @@ export class AdminComponent implements OnInit {
 
         }
     }
+    public borrarRuta(){
+      if (document.getElementById("verificacion").innerHTML == "existe"){
+          Almacen.getmarkers().forEach(estacion => {
+            if(estacion.label == this.currentTexto) //Busca la estacion a la que se quiere borrar la ruta
+            {
+                estacion.rutas.forEach(ruta => {
+                  if (ruta.label == this.currentText) //Encuentra la ruta que desea eliminar
+                  {
+                    estacion.rutas.splice(estacion.rutas.indexOf(ruta),1);
+                  }
+                  
+                });
+
+            }
+          });
+      }
+    }
   /**
    * Verifica que una ruta en ventana pertenezca 
    * @param nothing
@@ -262,18 +279,41 @@ export class AdminComponent implements OnInit {
             }
         });
 
-
-
-
-
-
-
-
-
       document.getElementById("ejemplo").innerHTML = resultado;
 
 
     }
+    
+    /**
+   * Segunda version que verifica que una ruta en ventana pertenezca 
+   * @param nothing
+   * @author Yordan Rojas
+   * @returns nothing
+   */ 
+    public verificarRuta2 ()
+      {
+        let resultado:any = "no existe";
+        Almacen.getmarkers().forEach(element2 => {
+
+          if (element2.label == this.currentTexto)
+            {
+
+              element2.rutas.forEach(element => {
+
+                if (element.label == this.currentText)
+                  {
+                    resultado = "existe";
+                  }
+                
+              });
+            }
+        });
+
+      document.getElementById("verificacion").innerHTML = resultado;
+
+
+    }
+
 
 
 
