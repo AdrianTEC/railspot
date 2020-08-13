@@ -23,21 +23,22 @@ export class HomeComponent implements OnInit {
   public verificar(){
 
     let idIngresada = (<HTMLInputElement>document.getElementById("busqueda")).value;
+    console.log("verificando...")
     
     for(let i of this.recibos)
     {
       if (i.id == idIngresada)
       {
-      Almacen.setCurrentID(idIngresada);
-      console.log("sirve")
-      //window.open("http://localhost:4200/Tren ");
-      this.state ="/Tren";
-      break;
+        Almacen.setCurrentID(idIngresada);
+        this.state ="/Tren";
+        console.log("encontrado")
+
+        break;
       }
       else
       {
-      console.log("NOO")
-      this.state = "/home";
+        console.log("NOO")
+        this.state = "/home";
       }
     
     }
