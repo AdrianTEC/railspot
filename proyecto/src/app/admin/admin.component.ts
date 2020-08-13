@@ -169,13 +169,14 @@ export class AdminComponent implements OnInit {
               lat1 = element1.lat;
               lng1 = element1.lng;
               Almacen.getmarkers().forEach(element => {
-                if (element.label == this.currentText){                
+                if (element.label == this.currentText)
+                {                
                   lat2 = element.lat;
                   lng2 = element.lng;
                   let nombre: any = element.label;
                   
                   element1.rutas.push({label:nombre, destination:{ lat:lat2, lng: lng2},distancia: ( Math.abs((lat2-lat1) ** 2 -(lng2-lng1 ) ) **  2)**1/2});
-            }
+                }
           });
         }        
       });  
@@ -187,22 +188,54 @@ export class AdminComponent implements OnInit {
    * @returns nothing
    */  
   public modificarRuta (){
-      let lat1:any;
-      let lng1:any;
-      let lat2:any;
-      let lng2:any;
-      let lat3:any;
-      let lng3:any;
+    let lat3:any;
+    let lng3:any;
 
-      Almacen.getmarkers().forEach(element1 => {
-        if (element1.label == this.currentTexto){
-          lat1
+     if (document.getElementById("ejemplo").innerHTML == "existe")
+     {
+
+          Almacen.getmarkers().forEach(estacion => 
+            {
+                if (estacion.label == this.currentTexto) //PARADA INICIAL
+                {
+
+                    estacion.rutas.forEach(ruta => {
+
+                    if (ruta.label == this.currentText)//PARADA FINAL
+                      {
+                          console.log("SE HA ENCONTRADO LA PARADA FINAL");
+                          let newLng:any;
+                          let newLat:any;
+                          Almacen.getmarkers().forEach(nuevaruta => 
+                            {
+                                if(nuevaruta.label== this.currentTextito) //NUEVA ESTACION
+                                  {
+
+                                      console.log("SE HA ENCONTRADO LA PARADA NUEVA, MODIFICANDO....");
+
+                                      newLng= nuevaruta.lng;
+                                      newLat= nuevaruta.lat;
+
+                                      estacion.rutas.splice(estacion.rutas.indexOf(ruta),1);
+                                      estacion.rutas.push({label:this.currentTextito, destination:{lat:newLat,lng: newLng},distancia:( Math.abs((newLat-estacion.lat) ** 2 -(newLng-estacion.lng ) ) **  2)**1/2  })
+
+
+                                  }
+                            
+                          });
+
+
+
+                      }
+
+                  });
+            }
+
+
+          });
+
+
         }
-
-        
-      });
-
-
     }
   /**
    * Verifica que una ruta en ventana pertenezca 
