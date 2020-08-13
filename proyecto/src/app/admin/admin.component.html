@@ -9,38 +9,43 @@
                 <input type="radio" name="options" id="option3" autocomplete="off"> Modificar Ruta
             </label>
             <label class="btn btn-secondary">
-                <input type="radio" name="options" id="option3" (click)="hola();" autocomplete="off"> Crear Ruta
+                <input type="radio" name="options" id="option3" autocomplete="off"> Crear Ruta
             </label>
             <label class="btn btn-secondary">
                 <input type="radio" name="options" id="option3" autocomplete="off"> Borrar Ruta
             </label>
+            <!--POR FECHA POR FEHC POR FECHA-->
             <label class="btn btn-secondary">
+
                       <div class="dropdown">
-                        <button id="test" class="btn btn-secondary dropdown-toggle" 
-                                type="button" id="2" 
-                                data-toggle="dropdown"
-                                aria-haspopup="true" 
-                                aria-expanded="false">
-                                Visualizar Compras por Fecha
-                        </button>
-                    
-                          <div class="dropdown-menu" 
-                                              aria-labelledby="2">
+                              <button id="test" class="btn btn-secondary dropdown-toggle" 
+                                      type="button" id="2" 
+                                      data-toggle="dropdown"
+                                      aria-haspopup="true" 
+                                      aria-expanded="false">
+                                      Visualizar Compras por Fecha
+                              </button>
                           
-                                            <li  *ngFor="let User of recibos;">
-                                                <button id="test" class="dropdown-item" type="button"
-                                                      *ngFor="let compra of User.compras;"
-                                                      value="compra.fecha"
-                                                      (click)="LlamarRecibo(compra.fecha, compra);"
-                                                      data-toggle="modal"
-                                                      data-target="#modalrecibos"
-                          
-                                                >{{compra.fecha}}</button>
-                                          </li>
-                          </div>
+                                <div class="dropdown-menu" 
+                                                    aria-labelledby="2">
+                                
+                                                <li  *ngFor="let User of recibos;">
+                                                      <button id="test" class="dropdown-item" type="button"                                                      
+                                                            *ngFor="let compra of User.compras;"
+                                                            value="compra.fecha"
+                                                            (click)="LlamarReciboIndi(compra.desde,compra.hasta,compra.fecha,compra.activo,compra.costo);"
+                                                            data-toggle="modal"
+                                                            data-target="#modalrecibosParaFechas"
+                                
+                                                      >{{compra.fecha}}</button>
+                                                </li>
+                                </div>
                       </div>
 
             </label>
+
+            <!--POR RUTA-->
+
             <label class="btn btn-secondary">
               <div class="dropdown">
                 <button id="test" class="btn btn-secondary dropdown-toggle" 
@@ -60,7 +65,7 @@
                                               value="compra.fecha"
                                               (click)="LlamarRecibo(compra.fecha, compra);"
                                               data-toggle="modal"
-                                              data-target="#modalrecibos"
+                                              data-target="#modalrecibosParaFechas"
                   
                                         >{{compra.desde}} a  {{compra.hasta}}</button>
                                   </li>
@@ -68,6 +73,8 @@
               </div>
 
             </label>
+            <!--POR   ID-->
+
             <label class="btn btn-secondary">
                     <div class="dropdown">
                             <button id="test" class="btn btn-secondary dropdown-toggle" 
@@ -118,60 +125,73 @@
 <!--
 
 
-////////////////////////////////////________Contenido dropdown ID___________///////////////////////////////////////////////////////////////
+////////////////////////////////////________MODAL POR FECHAS___________///////////////////////////////////////////////////////////////
 
 
 
 --> 
 
 
-<div class="modal fade" id="modalrecibos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        
-        <!--Titulo-->
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">
-            Ver tiquetes comprados por {{currentID}}
-          </h5>
-        </div>
-        <!--Cuerpo-->
-        <div class="modal-body" *ngFor="let compra of currentCompras;">
-          Tiquetes comprados: {{compra.fecha}}
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">
-            Cerrar
-          </button>
+    <div class="modal fade" id="modalrecibosParaFechas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          
+          <!--Titulo-->
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Ver tiquete comprado el {{currentID}}
+            </h5>
+          </div>
+          <!--Cuerpo-->
+          <div class="modal-body" *ngFor="let compra of currrentCompra;" style='{{returnColor(compra.activo)}}' >
+
+            <h3>--Tiquete--</h3>      
+            <h4>Costo: {{compra.costo}}</h4>
+            <h4>Desde: {{compra.desde}}</h4>
+            <h4>Hasta: {{compra.hasta}}</h4>
+            <h4>Fecha: {{compra.fecha}}</h4>
+            <h4>Estado: {{returnState(compra.activo)}} </h4>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              Cerrar
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="d-flex flex-row">
-
-
+    <div class="d-flex flex-row">
 <!--
 
 
-////////////////////////////////////________Contenido dropdown ID___________///////////////////////////////////////////////////////////////
+////////////////////////////////////________MODAL POR RUTAS___________///////////////////////////////////////////////////////////////
+
 
 
 --> 
 
 
-<div class="modal fade" id="modalrecibos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalrecibosParaRutas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       
       <!--Titulo-->
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">
-          Ver tiquetes comprados por {{currentID}}
+          Ver tiquete comprado el {{currentID}}
         </h5>
       </div>
       <!--Cuerpo-->
-      <div class="modal-body" *ngFor="let compra of currentCompras;">
-        Tiquetes comprados: {{compra.fecha}}
+      <div class="modal-body" *ngFor="let compra of currrentCompra;" style='{{returnColor(compra.activo)}}' >
+
+        <h3>--Tiquete--</h3>      
+        <h4>Costo: {{compra.costo}}</h4>
+        <h4>Desde: {{compra.desde}}</h4>
+        <h4>Hasta: {{compra.hasta}}</h4>
+        <h4>Fecha: {{compra.fecha}}</h4>
+        <h4>Estado: {{returnState(compra.activo)}} </h4>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">
@@ -181,4 +201,48 @@
     </div>
   </div>
 </div>
+<div class="d-flex flex-row">
+
+<!--
+
+
+////////////////////////////////////________MODAL NORMAL___________///////////////////////////////////////////////////////////////
+
+
+--> 
+
+
+<div class="modal fade" id="modalrecibos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  
+                  <!--Titulo-->
+                  <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                          Ver tiquetes comprados por {{currentID}}
+                        </h5>
+                  </div>
+                      <!--Cuerpo-->
+                      <div class="modal-body" *ngFor="let compra of currentCompras;"style='{{returnColor(compra.activo)}}' >
+
+                        <h3>--Tiquete--</h3>      
+                        <h4>Costo: {{compra.costo}}</h4>
+                        <h4>Desde: {{compra.desde}}</h4>
+                        <h4>Hasta: {{compra.hasta}}</h4>
+                        <h4>Fecha: {{compra.fecha}}</h4>
+                        <h4>Estado: {{returnState(compra.activo)}}
+
+
+                        </h4>
+
+                         
+                      </div>
+                            <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                    Cerrar
+                                  </button>
+                            </div>
+                    </div>
+              </div>
+      </div>
 <div class="d-flex flex-row">
