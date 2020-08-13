@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import Recibos from 'src/app/classes/JSON_INFO/recibos.json';
+import Recibos from '../admin/recibos.json';
+
 import { Almacen } from '../classes/Almacen';
 
 @Component({

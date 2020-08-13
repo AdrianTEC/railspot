@@ -10,7 +10,7 @@ export class  Almacen
     private static currentID: string;
     private static markers:{label:string, lat:number, lng:number, rutas: [{label:any,destination:{lat:any, lng:any}, distancia:any}]}[] = Estaciones;
 
-    public static recibos:[{id:string, compras:[{ costo:any,desde:string,hasta:string,fecha:string}]}] = Recibos;
+    public static recibos:{id:string,compras:{costo:string,desde:string,hasta:string,fecha:string}[]}[]= Recibos;
 
     private constructor()
         {

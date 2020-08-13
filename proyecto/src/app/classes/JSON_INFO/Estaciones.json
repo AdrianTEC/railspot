@@ -37,9 +37,7 @@
         "rutas":
         [  
                 {"label":"Estación de San pedro",  "destination":{ "lat":9.929034, "lng": -84.058325},"distancia":1},
-                {"label":"Estación Santo Domingo","destination":{"lat":9.981890, "lng":-84.087710},"distancia":1},
-            {"destination":{}}
-                 
+                {"label":"Estación Santo Domingo","destination":{"lat":9.981890, "lng":-84.087710},"distancia":1}                 
         ]
     },
     {

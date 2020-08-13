@@ -14,18 +14,16 @@ import {Almacen} from 'src/app/classes/Almacen'
   )
 
 export class AdminComponent implements OnInit {
-  
-  public markers:{label:string, lat:number, lng:number}[] = Almacen.getmarkers();
-  public recibos:{id:string, compras:any}[] = Recibos;
-
-  public currentID:any;
-  public currentCompras:any;
-  public currentText:any = "Parada Final";
-  public currentTexto:any = "Parada Inicial";
-  public currentTextito:any = "Nueva Parada Final";
 
   public compraActual:{desde:string, hasta:any,fecha:any,activo:boolean, costo:number}
+  public markers:{label:string, lat:number, lng:number}[] = Almacen.getmarkers();
+  public recibos:{id:string, compras:any}[] = Recibos;
+  public currentTextito:any = "Nueva Parada Final";
+  public currentTexto:any = "Parada Inicial";
+  public currentText:any = "Parada Final";
+  public currentCompras:any;
   public currrentCompra:any;
+  public currentID:any;
 
 
   public body:any;
@@ -36,11 +34,24 @@ export class AdminComponent implements OnInit {
    * @returns nothing
    */
 
+   /**
+   * Establece atributos de visualización
+   * @param id ,compras 
+   * @author Andrés Quiros
+   * @returns nothing
+   */
   public LlamarRecibo(id:any, compras:any)
     { 
       this.currentID = id;
       this.currentCompras = compras;
     }
+
+  /**
+   * Establece atributos de visualización individuales
+   * @param desde1,hast,fecha,activo,costo
+   * @author Andrés Quiros
+   * @returns nothing
+   */  
   public LlamarReciboIndi(desde1:string,hasta1:any,fecha1:any,  activo1:boolean,costo1:number)
     {
 
@@ -58,7 +69,12 @@ export class AdminComponent implements OnInit {
     }
 
 
-  
+     /**
+   * retorna el estado de un tiquete
+   * @param boolean estado
+   * @author Andrés Quiros
+   * @returns String
+   */
   public returnState(state:boolean)
     {
       if(state)
@@ -70,6 +86,13 @@ export class AdminComponent implements OnInit {
           return "Consumido";
         }
     }
+
+  /**
+   * Retorna un color para el texto de tiquetes
+   * @param boolean estado
+   * @author Adrián Gonzáñez
+   * @returns String
+   */   
   public returnColor(state:boolean)
   {
     if(state)
@@ -83,16 +106,14 @@ export class AdminComponent implements OnInit {
 
       }
   }
+
+
+
+
+//_______________DESCARGAR DE BASE DE DATOS______________________//////////////////////////////////////////  
+
   DATADESCARGABLE() {return of(this.recibos);}
-  
-  private setting = {
-    element: {
-      dynamicDownload: null as HTMLElement
-    }
-  }
-
-
-
+  private setting = {element: {dynamicDownload: null as HTMLElement}}
   descargarFacturasJson() 
     {
       this.DATADESCARGABLE().subscribe((res) => {
@@ -118,20 +139,25 @@ export class AdminComponent implements OnInit {
         element.dispatchEvent(event);
     }
 
-    public cambiarTexto(cosa:any)
-  {
-      this.currentText= cosa;
-  }
+  public cambiarTexto(cosa:any)
+    {
+        this.currentText= cosa;
+    }
   public cambiarTexto2(cosa:any)
-  {
-      this.currentTexto= cosa;
-  }
+    {
+        this.currentTexto= cosa;
+    }
   public cambiarTexto3(cosa:any)
-  {
-      this.currentTextito= cosa;
-  }
-
-    public crearRuta (){
+    {
+        this.currentTextito= cosa;
+    }
+  /**
+   * CREA UNA RUTA ENTRE DOS ESTACIONES establecidas en la ventana
+   * @param nothing
+   * @author Yordan Rojas
+   * @returns nothing
+   */  
+  public crearRuta (){
       let lat1:any;
       let lng1:any;
       let lat2:any;
@@ -154,8 +180,13 @@ export class AdminComponent implements OnInit {
         }        
       });  
     }
-
-    public modificarRuta (){
+  /**
+   * MODIFICA UNA RUTA ENTRE DOS ESTACIONES establecidas en la ventana por una  tercera
+   * @param nothing
+   * @author Yordan Rojas
+   * @returns nothing
+   */  
+  public modificarRuta (){
       let lat1:any;
       let lng1:any;
       let lat2:any;
@@ -173,19 +204,30 @@ export class AdminComponent implements OnInit {
 
 
     }
+  /**
+   * Verifica que una ruta en ventana pertenezca 
+   * @param nothing
+   * @author Yordan Rojas
+   * @returns nothing
+   */  
+    public verificarRuta ()
+      {
+        let resultado:any = "no esta registrado";
+        Almacen.getmarkers().forEach(element2 => {
 
-    public verificarRuta (){
-      let resultado:any = "no esta registrado";
-      Almacen.getmarkers().forEach(element2 => {
-        if (element2.label == this.currentTexto){
-          element2.rutas.forEach(element => {
-            if (element.label == this.currentText){
-              resultado = "existe";
+          if (element2.label == this.currentTexto)
+            {
+
+              element2.rutas.forEach(element => {
+
+                if (element.label == this.currentText)
+                  {
+                    resultado = "existe";
+                  }
+                
+              });
             }
-            
-          });
-        }
-      });
+        });
 
 
 

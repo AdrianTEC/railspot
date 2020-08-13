@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import Recibos from 'src/app/classes/JSON_INFO/recibos.json';
+
 import {AgmDirectionModule} from "agm-direction"
-import  Estaciones from 'src/app/classes/JSON_INFO/Estaciones.json'
-import { Observable, of } from "rxjs";
 import {Almacen} from 'src/app/classes/Almacen'
 
 import { Graph } from 'src/app/classes/Graph'
@@ -18,15 +16,15 @@ import { Vertex } from 'src/app/classes/Vertex'
 export class GrafoComponent implements OnInit {
 
   public markers:{label:string, lat:number, lng:number}[] = Almacen.getmarkers();
-
-
-  public recibos:{id:string,compras:{costo:string,desde:string,hasta:string,fecha:string}[]}[] =Recibos;//////////////////////////////////////////
+  public recibos:{id:string,compras:{costo:string,desde:string,hasta:string,fecha:string}[]}[] =Almacen.recibos;//////////////////////////////////////////
+  public costoTotal =  0;
+  public currentText= "Parada Inicial";
+  public currentText2= "Parada Final";
   
   lat1 = 9.859392;
   lng1 = -83.910825;
   ngOnInit() {}
 
-  public costoTotal =  0;
 
   
 
@@ -41,20 +39,19 @@ export class GrafoComponent implements OnInit {
     let costo = cantidad*precio;
     let descuento=0;
     if (cantidad == 1)
-    {
-     descuento = 0;
-    }
+      {
+      descuento = 0;
+      }
 
     else if (cantidad <= 45)
-    {
-     descuento = (costo*(cantidad*0.02));
-    }
+      {
+      descuento = (costo*(cantidad*0.02));
+      }
 
     else 
-    {
-       descuento =  costo*0.90;
-
-    }
+      {
+        descuento =  costo*0.90;
+      }
 
     costo-=descuento;
     document.getElementById("precioTotal").innerHTML = costo.toString();
@@ -62,13 +59,11 @@ export class GrafoComponent implements OnInit {
 
   }
 
-  public currentText= "Parada Inicial";
   public cambiarTexto(cosa:any)
   {
       this.currentText= cosa;
   }
 
-  public currentText2= "Parada Inicial";
   public cambiarTexto2(cosa:any)
   {
       this.currentText2= cosa;
@@ -78,8 +73,6 @@ export class GrafoComponent implements OnInit {
 
   public comprar(){
             this.precio();
-            let ruta1 = (<HTMLInputElement>document.getElementById("5")).textContent;
-            let cantidad = (<HTMLInputElement>document.getElementById("tiquetes")).value;
 
             let identidad1 = (<HTMLInputElement>document.getElementById("identidad")).value;
 
@@ -96,11 +89,13 @@ export class GrafoComponent implements OnInit {
                                   "costo": this.costoTotal.toString(),
                                   "desde": this.currentText,
                                   "hasta": this.currentText2,
-                                  "fecha":"12/12/12"                
+                                  "fecha":"12/12/12" ,
+                                  "activo": true               
                         } ;
 
-                    let compras:{ costo: string; desde: string; hasta: string; fecha: string; }[] = element.compras;
-                    compras.push(recibo);
+                    element.compras.push(recibo);
+                    console.log(element.compras);
+                    Almacen.recibos=this.recibos;
                     return;
                   }            
                 });
@@ -126,10 +121,7 @@ export class GrafoComponent implements OnInit {
 
             }
 
-            for(let i of this.recibos)
-              {
-                console.log(i);
-              }
+
     } 
 
 
