@@ -5,6 +5,9 @@ import  Estaciones from 'src/app/classes/JSON_INFO/Estaciones.json'
 import { Observable, of } from "rxjs";
 import {Almacen} from 'src/app/classes/Almacen'
 
+import { Graph } from 'src/app/classes/Graph'
+import { Vertex } from 'src/app/classes/Vertex'
+
 @Component({
   selector: 'app-grafo',
   templateUrl: './grafo.component.html',
@@ -174,3 +177,17 @@ interface marker {
 	lng: number;
 	label?: string;
 }
+
+let dijkstra = new Graph();
+dijkstra.addVertex(new Vertex("A", [{ nameOfVertex: "C", weight: 3 }, { nameOfVertex: "E", weight: 7 }, { nameOfVertex: "B", weight: 4 }], 1));
+dijkstra.addVertex(new Vertex("B", [{ nameOfVertex: "A", weight: 4 }, { nameOfVertex: "C", weight: 6 }, { nameOfVertex: "D", weight: 5 }], 1));
+dijkstra.addVertex(new Vertex("C", [{ nameOfVertex: "A", weight: 3 }, { nameOfVertex: "B", weight: 6 }, { nameOfVertex: "E", weight: 8 }, { nameOfVertex: "D", weight: 11 }], 1));
+dijkstra.addVertex(new Vertex("D", [{ nameOfVertex: "B", weight: 5 }, { nameOfVertex: "C", weight: 11 }, { nameOfVertex: "E", weight: 2 }, { nameOfVertex: "F", weight: 2 }], 1));
+dijkstra.addVertex(new Vertex("E", [{ nameOfVertex: "A", weight: 7 }, { nameOfVertex: "C", weight: 8 }, { nameOfVertex: "D", weight: 2 }, { nameOfVertex: "G", weight: 5 }], 1));
+dijkstra.addVertex(new Vertex("F", [{ nameOfVertex: "D", weight: 2 }, { nameOfVertex: "G", weight: 3 }], 1));
+dijkstra.addVertex(new Vertex("G", [{ nameOfVertex: "D", weight: 10 }, { nameOfVertex: "E", weight: 5 }, { nameOfVertex: "F", weight: 3 }], 1));
+console.log(dijkstra.dijkstra("A", "F"));
+console.log(dijkstra.dijkstra("A", "F"));
+console.log(dijkstra.dijkstra("F", "A"));
+console.log(dijkstra.dijkstra("E", "A"));
+console.log(dijkstra.dijkstra("A", "F"));
