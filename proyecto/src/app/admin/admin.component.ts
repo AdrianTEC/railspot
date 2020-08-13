@@ -210,7 +210,33 @@ export class AdminComponent implements OnInit {
                             {
                                 if(nuevaruta.label== this.currentTextito) //NUEVA ESTACION
                                   {
+                                    
 
+                                    let sepuede:boolean= true;
+                                    for(let usuario of Almacen.recibos){   // SE EXPLORAN LOS RECIBOS
+                                        for(let factura of usuario.compras) //exploro las facturas de los usuarios
+                                          {
+                                              console.log("factura--->: "+factura.desde +" "+ factura.hasta);
+                                              console.log("actual--->: "+estacion.label + " " +ruta.label);
+
+                                              if(factura.desde== estacion.label)// igual a mi estación original 
+                                                {
+
+                                                  if(factura.hasta== ruta.label)//igual a mi destino
+                                                    {
+                                                      console.log("NO SE PUEDE ");
+                                                      sepuede=false;
+                                                      break;
+                                                    }
+                                                }
+                                            
+                                          }
+                                      
+
+                                    }
+
+                                    if( sepuede){
+                                    
                                       console.log("SE HA ENCONTRADO LA PARADA NUEVA, MODIFICANDO....");
 
                                       newLng= nuevaruta.lng;
@@ -218,8 +244,11 @@ export class AdminComponent implements OnInit {
 
                                       estacion.rutas.splice(estacion.rutas.indexOf(ruta),1);
                                       estacion.rutas.push({label:this.currentTextito, destination:{lat:newLat,lng: newLng},distancia:( Math.abs((newLat-estacion.lat) ** 2 -(newLng-estacion.lng ) ) **  2)**1/2  })
-
-
+                                    }
+                                    else
+                                      {console.log("NO SE PUEDE REALIZAR LA TRANSACCIÓN");
+                                        alert("No se puede realizar la transacción, es posible que aún hayan tiquetes asignados")                                    ;
+                                      }
                                   }
                             
                           });
