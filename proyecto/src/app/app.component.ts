@@ -3,6 +3,7 @@ import {Almacen} from './classes/Almacen';
 
 
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

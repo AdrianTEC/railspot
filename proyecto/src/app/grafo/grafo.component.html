@@ -41,7 +41,8 @@
 <button 
       type="button" 
       (click)="do()" 
-      class="btn btn-primary" >
+      class="btn btn-primary"
+      id="5" >
       Primary
 </button>
 
@@ -62,7 +63,7 @@
                 data-toggle="dropdown"
                 aria-haspopup="true" 
                 aria-expanded="false">
-                  Parada inicial
+                  {{currentText}}
         </button>
 
         <div class="dropdown-menu" 
@@ -70,6 +71,7 @@
               <button class="dropdown-item" type="button"
                     *ngFor="let m of markers;"
               
+               (click)="cambiarTexto(m.label);"
               
               >{{ m.label}}</button>
 
@@ -84,22 +86,27 @@
 
 -->  
 
-    <div class="dropdown">
-              <button 
-                    class="btn btn-secondary dropdown-toggle" 
-                    type="button" 
-                    id="1" 
-                    data-toggle="dropdown" 
-                    aria-haspopup="true" 
-                    aria-expanded="false">
-                    Destino
-              </button>
+<div class="d-flex flex-row">
 
-              <div class="dropdown-menu" aria-labelledby="1">
-                    <button class="dropdown-item" type="button">Desampakistán</button>
-                    <button class="dropdown-item" type="button">Chepe</button>
-                    <button class="dropdown-item" type="button">San Pedro</button>
-              </div>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" 
+                type="button" id="3" 
+                data-toggle="dropdown"
+                aria-haspopup="true" 
+                aria-expanded="false">
+                  {{currentText2}}
+        </button>
+
+        <div class="dropdown-menu" 
+            aria-labelledby="2">
+              <button class="dropdown-item" type="button"
+                    *ngFor="let m of markers;"
+              
+               (click)="cambiarTexto2(m.label);"
+              
+              >{{ m.label}}</button>
+
+        </div>
     </div>
 <!--
 
@@ -122,7 +129,7 @@
 <!--
 
 
-////////////////////////////////////_________BOTON DE COMPRA___________///////////////////////////////////////////////////////////////
+////////////////////////////////////_________VERIFICAR PRECIO___________///////////////////////////////////////////////////////////////
 
 
 
@@ -133,8 +140,32 @@
             Comprobar precio
 
     </button>
+    <h1 id="precioTotal"></h1>
 
 
+<!--
 
-    <h1 id="prueba">hola</h1>
+
+////////////////////////////////////_________COMPRA___________///////////////////////////////////////////////////////////////
+
+--> 
+
+
+    <div class="input-group mb-3" class="w-25 p-3">
+        <input 
+            type="text" 
+            class="form-control" 
+            id="identidad"
+            placeholder="Ingresar cédula" 
+            aria-label="Username" 
+            aria-describedby="basic-addon1">
+    </div>
+
+<button (click)="comprar();"
+            type="button" 
+            class="btn btn-primary">
+            Comprar tiquetes
+</button>
+
+<h1 id="prueba1"></h1>
 </div>
