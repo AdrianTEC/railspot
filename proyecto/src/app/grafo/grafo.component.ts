@@ -180,8 +180,4 @@ dijkstra.addVertex(new Vertex("D", [{ nameOfVertex: "B", weight: 5 }, { nameOfVe
 dijkstra.addVertex(new Vertex("E", [{ nameOfVertex: "A", weight: 7 }, { nameOfVertex: "C", weight: 8 }, { nameOfVertex: "D", weight: 2 }, { nameOfVertex: "G", weight: 5 }], 1));
 dijkstra.addVertex(new Vertex("F", [{ nameOfVertex: "D", weight: 2 }, { nameOfVertex: "G", weight: 3 }], 1));
 dijkstra.addVertex(new Vertex("G", [{ nameOfVertex: "D", weight: 10 }, { nameOfVertex: "E", weight: 5 }, { nameOfVertex: "F", weight: 3 }], 1));
-console.log(dijkstra.dijkstra("A", "F"));
-console.log(dijkstra.dijkstra("A", "F"));
-console.log(dijkstra.dijkstra("F", "A"));
-console.log(dijkstra.dijkstra("E", "A"));
-console.log(dijkstra.dijkstra("A", "F"));
+console.log(dijkstra.vertices);

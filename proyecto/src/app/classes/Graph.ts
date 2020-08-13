@@ -14,7 +14,7 @@ export class Graph
             this.vertices[vertex.name] = vertex;
         }
 
-    private findPointsOfShortestWay(start: string, finish: string, weight: number): string[] 
+    private findPointsOfShortestWay(start: string, finish: string): string[] 
         {
 
             let nextVertex: string = finish;
@@ -64,7 +64,7 @@ export class Graph
                 delete nodes[sortedVisitedByWeight[0]];
             }
             const finishWeight: number = graphVertices[finish].weight;
-            let arrayWithVertex: string[] = this.findPointsOfShortestWay(start, finish, finishWeight).reverse();
+            let arrayWithVertex: string[] = this.findPointsOfShortestWay(start, finish).reverse();
             arrayWithVertex.push(finish, finishWeight.toString());
             return arrayWithVertex;
         }
