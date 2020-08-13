@@ -6,6 +6,8 @@ import {Almacen} from 'src/app/classes/Almacen'
 import { Graph } from 'src/app/classes/Graph'
 import { Vertex } from 'src/app/classes/Vertex'
 
+
+
 @Component({
   selector: 'app-grafo',
   templateUrl: './grafo.component.html',
@@ -20,13 +22,13 @@ export class GrafoComponent implements OnInit {
   public costoTotal =  0;
   public currentText= "Parada Inicial";
   public currentText2= "Parada Final";
+ 
   
   lat1 = 9.859392;
   lng1 = -83.910825;
   ngOnInit() {}
 
 
-  
 
  
 
@@ -68,14 +70,11 @@ export class GrafoComponent implements OnInit {
     }
 
 
-
   public comprar(){
             this.precio();
-
             let identidad1 = (<HTMLInputElement>document.getElementById("identidad")).value;
-
+            let fecha = (<HTMLInputElement>document.getElementById("fecha")).value;
             let yaExiste: boolean = false;
-
             this.recibos.forEach(element => 
                 {
                   if (element.id == identidad1)
@@ -87,7 +86,7 @@ export class GrafoComponent implements OnInit {
                                   "costo": this.costoTotal.toString(),
                                   "desde": this.currentText,
                                   "hasta": this.currentText2,
-                                  "fecha":"12/12/12" ,
+                                  "fecha": fecha,
                                   "activo": true               
                         } ;
 
@@ -110,12 +109,13 @@ export class GrafoComponent implements OnInit {
                             "costo": this.costoTotal.toString(),
                             "desde": this.currentText,
                             "hasta": this.currentText2,
-                            "fecha":"12/12/12"
+                            "fecha": fecha,
                           } 
                     
                         ]
                     };
                     this.recibos.push(recibo);
+                    this.mostrar();
 
             }
 
@@ -154,7 +154,12 @@ export class GrafoComponent implements OnInit {
       }
 
   
-
+  public mostrar (){
+    this.recibos.forEach(element => {
+      console.log(element);
+      
+    });
+  }
 
 
 

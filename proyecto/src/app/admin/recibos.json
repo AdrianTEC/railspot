@@ -7,14 +7,14 @@
                 "costo":500,
                 "desde": "Estación de Paraíso",
                 "hasta": "Cartago",
-                "fecha":"12/12/12",
+                "fecha":"12/10",
                 "activo":true
             },
             {
                 "costo":700,
                 "desde": "Estación de Paraíso",
                 "hasta": "Estación de Curridabat",
-                "fecha":"20/12/12",
+                "fecha":"20/08",
                 "activo":false
             }
         ]
@@ -27,7 +27,7 @@
                 "costo":1000,
                 "desde": "Estación de Curridabat",
                 "hasta": "Estación de Moravia",
-                "fecha":"12/12/12",
+                "fecha":"12/09",
                 "activo":true
             }
         ]
@@ -40,7 +40,7 @@
                 "costo":1500,
                 "desde": "Estación de Tíbas",
                 "hasta": "Estación de Santo Domingo",
-                "fecha":"12/12/12",
+                "fecha":"12/12",
                 "activo":true
             }
         ]
