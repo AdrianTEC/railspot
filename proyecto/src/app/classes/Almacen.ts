@@ -24,7 +24,6 @@ export class  Almacen
             if(this.firstTime)
                 {
                     this.firstTime=false;
-                        console.log("He ingresado correctamente al constuctor de almacen buen dia");
 
 
                         Almacen.markers.forEach(estacion => {
@@ -33,23 +32,40 @@ export class  Almacen
 
                             estacion.rutas.forEach(ruta => 
                                 {
-                                        listaRutas.push({nameOfVertex: ruta.label, weight:  ( Math.abs((ruta.destination.lat-estacion.lat)** 2 -(ruta.destination.lng-estacion.lng ) )**  2)**1/2});
-                                    
+                                        listaRutas.push({nameOfVertex: ruta.label, weight:  Almacen.Distance(estacion.lat, estacion.lng, ruta.destination.lat, ruta.destination.lng)});
+
                                 });
 
 
-                            Almacen.grafo.addVertex(new Vertex(estacion.label,listaRutas,1));  
+                            Almacen.grafo.addVertex(new Vertex(estacion.label, listaRutas, 1));  
                             
-
-                            
-
                         });
+                        console.log(Almacen.grafo.vertices)
 
-                       // console.log(Almacen.grafo.dijkstra("Estación de Cartago","Estacion de Guadalupe"));
+                        console.log(Almacen.grafo.dijkstra("Estacion de Sabanilla", "Estacion de Guadalupe"))
      
                 }
 
-        }    
+        }   
+    
+    public static Distance(lat1,lon1,lat2,lon2) {
+        var R = 6371; // Radius of the earth in km
+        var dLat = this.deg2rad(lat2-lat1);  // deg2rad below
+        var dLon = this.deg2rad(lon2-lon1); 
+        var a = 
+            Math.sin(dLat/2) * Math.sin(dLat/2) +
+            Math.cos(this.deg2rad(lat1)) * Math.cos(this.deg2rad(lat2)) * 
+            Math.sin(dLon/2) * Math.sin(dLon/2)
+            ; 
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+        var d = R * c; // Distance in km
+        return d;
+        }
+    
+        public static deg2rad(deg) {
+        return deg * (Math.PI/180)
+        }
+
     public static getAlmacen()
         {
             if(this.me==null)

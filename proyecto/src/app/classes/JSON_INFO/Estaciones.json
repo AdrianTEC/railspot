@@ -54,13 +54,12 @@
         "lat":9.955037, "lng":-84.043306,
         "rutas":
         [
-            {"label":"Estación de Tibás","destination":{"lat":9.955540,"lng": -84.082989},"distancia":1},
-            {"label":"Estación de Tibás","destination":{"lat": 9.961869,"lng": -84.048579},"distancia":1}
+            {"label":"Estación de Tibás","destination":{"lat":9.955540,"lng": -84.082989},"distancia":1}
 
         ]
     },
     {   
-        "label":"Estacion de sabanilla",
+        "label":"Estacion de Sabanilla",
         "lat":9.945464, "lng": -84.033671,
         "rutas":
         [
