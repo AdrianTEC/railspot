@@ -251,16 +251,16 @@
                     data-toggle="dropdown"
                     aria-haspopup="true" 
                     aria-expanded="false">
-                      Parada inicial
+                      {{currentTexto}}
             </button>
     
             <div class="dropdown-menu" 
                 aria-labelledby="2">
                   <button class="dropdown-item" type="button"
                         *ngFor="let m of markers;"
+                        (click)="cambiarTexto2(m.label);"
                   
-                  
-                  >{{ m.label}}</button>
+                            >{{ m.label}}</button>
     
             </div>
         </div>
@@ -270,23 +270,27 @@
                   data-toggle="dropdown"
                   aria-haspopup="true" 
                   aria-expanded="false">
-                    Parada Final
+                    {{currentText}}
           </button>
   
           <div class="dropdown-menu" 
               aria-labelledby="2">
                 <button class="dropdown-item" type="button"
                       *ngFor="let m of markers;"
+                      (click)="cambiarTexto(m.label);"
                 
-                
-                >{{ m.label}}</button>
+                        >{{ m.label}}</button>
   
           </div>
       </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+        <button type="button" 
+        class="btn btn-secondary" 
+        data-dismiss="modal"
+        (click)="crearRuta();"
+        >
           Listo
         </button>
       </div>

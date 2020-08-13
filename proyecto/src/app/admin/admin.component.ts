@@ -20,6 +20,8 @@ export class AdminComponent implements OnInit {
 
   public currentID:any;
   public currentCompras:any;
+  public currentText:any = "Parada Final";
+  public currentTexto:any = "Parada Inicial";
 
   public compraActual:{desde:string, hasta:any,fecha:any,activo:boolean, costo:number}
   public currrentCompra:any;
@@ -113,6 +115,41 @@ export class AdminComponent implements OnInit {
     
         var event = new MouseEvent("click");
         element.dispatchEvent(event);
+    }
+
+    public cambiarTexto(cosa:any)
+  {
+      this.currentText= cosa;
+  }
+  public cambiarTexto2(cosa:any)
+  {
+      this.currentTexto= cosa;
+  }
+
+    public crearRuta (){
+      let lat1:any;
+      let lng1:any;
+      let lat2:any;
+      let lng2:any;
+      
+      Almacen.getmarkers().forEach(element1 => {
+        console.log(element1.label + " No joda");
+        if (element1.label == this.currentTexto){
+          console.log(element1.label + " Encontre x");
+              lat1 = element1.lat;
+              lng1 = element1.lng;
+
+              Almacen.getmarkers().forEach(element => {
+                if (element.label == this.currentText){
+                  console.log(element.label + " Encontre x2");
+                  lat2 = element.lat;
+                  lng2 = element.lng;
+                  
+                  element1.rutas.push({destination:{ lat:lat2, lng: lng2},distancia: ( Math.abs((lat2-lat1) ** 2 -(lng2-lng1 ) ) **  2)**1/2});
+            }
+          });
+        }        
+      });  
     }
 
 
