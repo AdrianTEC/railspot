@@ -6,7 +6,7 @@
             {
                 "costo":500,
                 "desde": "Estación de Paraíso",
-                "hasta": "Cartago",
+                "hasta": "Estación de Cartago",
                 "fecha":"12/10",
                 "activo":true
             },

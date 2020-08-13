@@ -244,19 +244,59 @@ export class AdminComponent implements OnInit {
    * @returns nothing
    */ 
     public borrarRuta(){
-      if (document.getElementById("verificacion").innerHTML == "existe"){
-          Almacen.getmarkers().forEach(estacion => {
-            if(estacion.label == this.currentTexto) //Busca la estacion a la que se quiere borrar la ruta
-            {
-                estacion.rutas.forEach(ruta => {
-                  if (ruta.label == this.currentText) //Encuentra la ruta que desea eliminar
-                  {
-                    estacion.rutas.splice(estacion.rutas.indexOf(ruta),1);
-                  }
-                  
-                });
 
-            }
+
+      if (document.getElementById("verificacion").innerHTML == "existe"){
+
+          Almacen.getmarkers().forEach(estacion => {
+            
+            if(estacion.label == this.currentTexto) //Busca la estacion a la que se quiere borrar la ruta
+                {
+                    estacion.rutas.forEach(ruta => 
+                        {
+                            if (ruta.label == this.currentText) //Encuentra la ruta que desea eliminar
+                                  { 
+                                    
+                                    let sepuede:boolean= true;
+                                    for(let usuario of Almacen.recibos){   // SE EXPLORAN LOS RECIBOS
+                                        for(let factura of usuario.compras) //exploro las facturas de los usuarios
+                                          {
+                                              console.log("factura--->: "+factura.desde +" "+ factura.hasta);
+                                              console.log("actual--->: "+estacion.label + " " +ruta.label);
+
+                                              if(factura.desde== estacion.label)// igual a mi estación original 
+                                                {
+
+                                                  if(factura.hasta== ruta.label)//igual a mi destino
+                                                    {
+                                                      console.log("NO SE PUEDE ");
+                                                      sepuede=false;
+                                                      break;
+                                                    }
+                                                }
+                                            
+                                          }
+                                      
+
+                                    }
+
+
+
+                                    if(sepuede)
+                                      { console.log("Borrado de ruta satisfactorio");
+                                        estacion.rutas.splice(estacion.rutas.indexOf(ruta),1);
+
+
+                                    }
+                                    else
+                                      {console.log("NO SE PUEDE REALIZAR LA TRANSACCIÓN");
+                                        alert("No se puede realizar la transacción, es posible que aún hayan tiquetes asignados")                                    ;
+                                      }
+                                  }
+                        
+                        });
+
+                }
           });
       }
     }
