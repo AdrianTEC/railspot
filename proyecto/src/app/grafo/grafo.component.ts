@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import Recibos from 'src/app/classes/JSON_INFO/recibos.json';
 import {AgmDirectionModule} from "agm-direction"
 import  Estaciones from 'src/app/classes/JSON_INFO/Estaciones.json'
+import { Observable, of } from "rxjs";
+import {Almacen} from 'src/app/classes/Almacen'
 
 @Component({
   selector: 'app-grafo',
@@ -12,7 +14,8 @@ import  Estaciones from 'src/app/classes/JSON_INFO/Estaciones.json'
 
 export class GrafoComponent implements OnInit {
 
-  public markers:{label:string, lat:number, lng:number}[] = Estaciones;
+  public markers:{label:string, lat:number, lng:number}[] = Almacen.getmarkers();
+
 
   public recibos:{id:string,compras:{costo:string,desde:string,hasta:string,fecha:string}[]}[] =Recibos;//////////////////////////////////////////
   

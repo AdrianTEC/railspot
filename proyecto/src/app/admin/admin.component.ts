@@ -1,7 +1,8 @@
 import { Component, OnInit, ɵReflectionCapabilities } from '@angular/core';
 import Recibos from './recibos.json';
 import { Observable, of } from "rxjs";
-import  Estaciones from 'src/app/classes/JSON_INFO/Estaciones.json'
+import {Almacen} from 'src/app/classes/Almacen'
+
 
 @Component
   (
@@ -14,7 +15,7 @@ import  Estaciones from 'src/app/classes/JSON_INFO/Estaciones.json'
 
 export class AdminComponent implements OnInit {
   
-  public markers:{label:string, lat:number, lng:number}[] = Estaciones;
+  public markers:{label:string, lat:number, lng:number}[] = Almacen.getmarkers();
   public recibos:{id:string, compras:any}[] = Recibos;
 
   public currentID:any;
