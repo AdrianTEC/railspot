@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Almacen} from './classes/Almacen';
+import { OnInit } from '@angular/core';
 
 
 
@@ -11,15 +12,21 @@ import {Almacen} from './classes/Almacen';
 })
 
 
-export class AppComponent 
+
+export class AppComponent implements OnInit
   {
     title = 'proyecto';
-
-
+    constructor()
+    {
+    }
+    ngOnInit() {  
+            Almacen.crearGrafo();
+            
+    }
+ 
     //crea el grafo
     public crearbicho ()
       {
-        Almacen.crearGrafo();
       }
 
     public UserType()

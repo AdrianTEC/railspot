@@ -42,7 +42,8 @@ export class  Almacen
                         });
                         console.log(Almacen.grafo.vertices)
 
-                        console.log(Almacen.grafo.dijkstra("Estacion de Sabanilla", "Estacion de Guadalupe"))
+                        
+                        //console.log(Almacen.grafo.dijkstra("Estacion de Sabanilla", "Estacion de Guadalupe"))
      
                 }
 
