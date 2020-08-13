@@ -8,13 +8,33 @@
             <label class="btn btn-secondary active">
                 <input type="radio" name="options" id="option3" autocomplete="off"> Modificar Ruta
             </label>
+
+            <!--
+              ////////////////////////////////////////////////////////////////////////////////////////////////
+            -->
+
+              <button id="test" class="btn btn-secondary" 
+                      type="button" id="2" 
+                      data-toggle="dropdown"
+                      aria-haspopup="true" 
+                      aria-expanded="false"
+                      data-toggle="modal"
+                      data-target="#modalrutas">
+                      Crear Ruta
+              </button> 
+                      
+          
+                
+
+            <!--
+              ////////////////////////////////////////////////////////////////////////////////////////////////
+            -->
             <label class="btn btn-secondary">
                 <input type="radio" name="options" id="option3" autocomplete="off"> Crear Ruta
             </label>
             <label class="btn btn-secondary">
                 <input type="radio" name="options" id="option3" autocomplete="off"> Borrar Ruta
             </label>
-            <!--POR FECHA POR FEHC POR FECHA-->
             <label class="btn btn-secondary">
 
                       <div class="dropdown">
@@ -196,6 +216,46 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">
           Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="d-flex flex-row">
+
+  <!--
+
+
+////////////////////////////////////________Contenido dropdown CreacionRuta___________///////////////////////////////////////////////////////////////
+
+
+--> 
+
+
+<div class="modal fade" id="modalrutas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      
+      <!--Titulo-->
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          Escoja las direcciones de su nueva ruta
+        </h5>
+      </div>
+      <!--Cuerpo-->
+      <div class="modal-body">
+        <form>
+          <div  class="form-group">
+            <label>Origen</label>
+            <input type="text" class="form-control" id="origennruta">
+            <label>Destino</label>
+            <input type="text" class="form-control" id="destinonruta">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Listo
         </button>
       </div>
     </div>
