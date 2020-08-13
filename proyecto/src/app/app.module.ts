@@ -8,12 +8,15 @@ import { AgmCoreModule, GoogleMapsAPIWrapper} from '@agm/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AgmDirectionModule } from 'agm-direction';
 import { AdminComponent } from './admin/admin.component';
+import { VentanatrenComponent } from './ventanatren/ventanatren.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     GrafoComponent,
     AdminComponent,
+    VentanatrenComponent,
+
     
   ],
   imports: [

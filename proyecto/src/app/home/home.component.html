@@ -1,12 +1,37 @@
 
 
 
-<div class="contenedor">
-    <div class="texto-encima">Bienvenido Usuario</div>
-</div>
+<h1>Hola Usuario, bienvenido a Railspot</h1>
 
-<div class="imagen">
-    <img src="https://getoutcampingdotcom.files.wordpress.com/2014/07/evil-genius-racoon.jpg "  width= 100% height= 50% >
+<h1>Ingrese su ID para realizar búsqueda de sus boletos</h1>
+
+<div class="d-flex flex-row">
+    <div class="input-group mb-3" class="w-25 p-3">
+        <input 
+            type="text" 
+            class="form-control" 
+            id="busqueda"
+            placeholder="Ingrese su id" 
+            aria-label="Username" 
+            aria-describedby="basic-addon1">
+    </div>
+
+
+    <button
+            (click)="verificar();"
+            type="button" 
+            class="btn btn-primary">
+            Verificar usuario
+    </button>
+    
+    
+    <button
+        routerLink={{returnState()}}
+        type="button" 
+        class="btn btn-primary">
+        Ver tiquetes
+    </button>   
+
 </div>
 
 
