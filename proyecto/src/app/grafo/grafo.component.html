@@ -119,8 +119,9 @@
             aria-labelledby="2">
               <button class="dropdown-item" type="button"
                     *ngFor="let m of markers;"
+
               
-               (click)="cambiarTexto2(m.label);"
+                        (click)="cambiarTexto2(m.label);"
               
               >{{ m.label}}</button>
 
@@ -158,7 +159,11 @@
             Comprobar precio
 
     </button>
-    <h1 id="precioTotal"></h1>
+    <h1 id="precioTotal">
+
+    
+    </h1>
+    <h4 id="distancia"></h4>
 
 
 <!--

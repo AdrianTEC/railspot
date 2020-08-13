@@ -20,6 +20,7 @@ export class GrafoComponent implements OnInit {
   public costoTotal =  0;
   public currentText= "Parada Inicial";
   public currentText2= "Parada Final";
+  public distance:number;
   
   lat1 = 9.859392;
   lng1 = -83.910825;
@@ -35,7 +36,29 @@ export class GrafoComponent implements OnInit {
 
     var  x = (<HTMLInputElement>document.getElementById("tiquetes")).value;
     let cantidad = Number (x);
-    let precio: number = 100;
+
+    let latLngIncial:{lat:number,lng:number};
+    let latLngFinal:{lat:number,lng:number};
+    Almacen.getmarkers().forEach(estacion => 
+      {
+        
+        if(estacion.label==this.currentText)
+          {
+            latLngIncial={lat:estacion.lat,lng:estacion.lng};
+          }
+        if(estacion.label==this.currentText2)
+          {
+            latLngFinal={lat:estacion.lat,lng:estacion.lng};
+          }
+
+      });
+        let distance:number= this.Distance(latLngIncial.lat,latLngIncial.lng, latLngFinal.lat,latLngFinal.lng);
+
+        distance=Math.round(distance * 100) / 100;
+        
+    let precio: number = 25*distance;
+   
+
     let costo = cantidad*precio;
     let descuento=0;
     if (cantidad == 1)
@@ -54,7 +77,10 @@ export class GrafoComponent implements OnInit {
       }
 
     costo-=descuento;
-    document.getElementById("precioTotal").innerHTML = costo.toString();
+    costo= Math.round(costo * 10) / 10
+    document.getElementById("precioTotal").innerHTML = "₡"+ costo.toString();
+    document.getElementById("distancia").innerHTML = distance.toString()+"km";
+
     this.costoTotal = costo;
 
   }
@@ -67,7 +93,23 @@ export class GrafoComponent implements OnInit {
         this.currentText2= cosa;
     }
 
-
+    public Distance(lat1,lon1,lat2,lon2) {
+      var R = 6371; // Radius of the earth in km
+      var dLat = this.deg2rad(lat2-lat1);  // deg2rad below
+      var dLon = this.deg2rad(lon2-lon1); 
+      var a = 
+        Math.sin(dLat/2) * Math.sin(dLat/2) +
+        Math.cos(this.deg2rad(lat1)) * Math.cos(this.deg2rad(lat2)) * 
+        Math.sin(dLon/2) * Math.sin(dLon/2)
+        ; 
+      var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+      var d = R * c; // Distance in km
+      return d;
+    }
+    
+    public deg2rad(deg) {
+      return deg * (Math.PI/180)
+    }
 
   public comprar(){
             this.precio();
