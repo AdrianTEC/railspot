@@ -83,7 +83,8 @@
                                         <button id="test" class="dropdown-item" type="button"
                                               *ngFor="let compra of User.compras;"
                                               value="compra.fecha"
-                                              (click)="LlamarRecibo(compra.hasta, compra);"
+                                              (click)="LlamarReciboIndi(compra.desde,compra.hasta,compra.fecha,compra.activo,compra.costo);"
+
                                               data-toggle="modal"
                                               data-target="#modalrecibosParaRutas"
                   
