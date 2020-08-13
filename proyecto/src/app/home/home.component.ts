@@ -15,11 +15,23 @@ export class HomeComponent implements OnInit {
   }
   public recibos:{id:string}[] =Recibos;
   public state: string = "/home";
-  
+  public mensaje:string;
+
   
   ngOnInit(): void {
   }
 
+  public returnColor()
+    {
+        if(this.state=="/home")
+          {
+              return"color:#eb4034";
+          }
+        if(this.state=="/Tren")
+          {
+              return"color:#98fc74";
+          }
+    }
 
   public verificar(){
 
@@ -33,6 +45,7 @@ export class HomeComponent implements OnInit {
         Almacen.setCurrentID(idIngresada);
         this.state ="/Tren";
         console.log("encontrado")
+        this.mensaje= "Existe";
 
         break;
       }
@@ -40,6 +53,8 @@ export class HomeComponent implements OnInit {
       {
         console.log("NOO")
         this.state = "/home";
+        this.mensaje= "El usuario ingresado no existe";
+
       }
     
     }

@@ -93,7 +93,6 @@ export class GrafoComponent implements OnInit {
     {
         this.currentText2= cosa;
     }
-
     public Distance(lat1,lon1,lat2,lon2) {
       var R = 6371; // Radius of the earth in km
       var dLat = this.deg2rad(lat2-lat1);  // deg2rad below
